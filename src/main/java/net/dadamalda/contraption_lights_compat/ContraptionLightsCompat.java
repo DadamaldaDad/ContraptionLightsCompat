@@ -1,4 +1,4 @@
-package net.dadamalda.create_color_grid;
+package net.dadamalda.contraption_lights_compat;
 
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
@@ -7,15 +7,15 @@ import net.neoforged.fml.common.Mod;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
-@Mod(Create_color_grid.MODID)
-public class Create_color_grid {
+@Mod(ContraptionLightsCompat.MODID)
+public class ContraptionLightsCompat {
     // Define mod id in a common place for everything to reference
-    public static final String MODID = "create_color_grid";
+    public static final String MODID = "contraption_lights_compat";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
-    public Create_color_grid(IEventBus modEventBus, ModContainer modContainer) {
+    public ContraptionLightsCompat(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
         // modEventBus.addListener(this::register);
 

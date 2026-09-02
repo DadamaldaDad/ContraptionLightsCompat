@@ -1,4 +1,4 @@
-package net.dadamalda.create_color_grid.mixin;
+package net.dadamalda.contraption_lights_compat.mixin;
 
 import com.llamalad7.mixinextras.sugar.Share;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;

@@ -1,4 +1,4 @@
-package net.dadamalda.create_color_grid.mixin;
+package net.dadamalda.contraption_lights_compat.mixin;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.ItemInteractionResult;
