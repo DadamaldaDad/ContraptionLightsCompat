@@ -1,0 +1,8 @@
+{
+  "values": [
+    {"block": "powergrid:factory_light", "color":  "white"},
+    {"block": "powergrid:factory_light_light", "color":  "white"},
+    {"block": "powergrid:ceiling_tile_lamp", "color":  "white"},
+    {"block": "powergrid:string_light_block", "color": "white"}
+  ]
+}
