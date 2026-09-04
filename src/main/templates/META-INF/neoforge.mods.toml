@@ -36,7 +36,8 @@ description = '''${mod_description}'''
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.
 [[mixins]]
-config = "${mod_id}.mixins.json"
+config = "${mod_id}.power_grid.mixins.json"
+required_mods = ["powergrid"]
 
 # The [[accessTransformers]] block allows you to declare where your AT file is.
 # If this block is omitted, a fallback attempt will be made to load an AT from META-INF/accesstransformer.cfg
@@ -73,23 +74,16 @@ ordering = "NONE"
 side = "BOTH"
 
 [[dependencies."${mod_id}"]]
-modId="create"
+modId="contraptionlights"
 type="required"
-versionRange="[6.0.10,6.1.0)"
+versionRange="[1.5.0-beta.5.1,)"
 ordering="NONE"
-side="BOTH"
+side="CLIENT"
 
 [[dependencies."${mod_id}"]]
 modId="powergrid"
-type="required"
+type="optional"
 versionRange="[0.6.0,)"
-ordering="NONE"
-side="BOTH"
-
-[[dependencies."${mod_id}"]]
-modId="contraptionlights"
-type="required"
-versionRange="[1.5.0-beta.3,)"
 ordering="NONE"
 side="BOTH"
 

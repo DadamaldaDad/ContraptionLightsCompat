@@ -1,12 +1,11 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.dadamalda.contraption_lights_compat.mixin",
+  "package": "net.dadamalda.contraption_lights_compat.mixin.power_grid",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
   ],
   "client": [
-    "LightSourceColorMixin",
     "LightFixtureBlockEntityMixin",
     "AbstractLightFixtureBlockEntityMixin"
   ],
