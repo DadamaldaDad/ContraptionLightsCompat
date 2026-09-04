@@ -2,6 +2,8 @@ plugins {
     id 'java-library'
     id 'maven-publish'
     id 'idea'
+    id 'com.modrinth.minotaur' version '2.+'
+    id 'de.maxhenkel.cursegradle' version '1.5.2'
     id 'net.neoforged.moddev' version '2.0.146'
 }
 
@@ -191,4 +193,44 @@ idea {
         downloadSources = true
         downloadJavadoc = true
     }
+}
+
+modrinth {
+    token = project.hasProperty("modrinthToken") ? project.property("modrinthToken") : ""
+    projectId = "contraption-lights-compat"
+    versionNumber = project.version
+    versionName = project.version
+    uploadFile = jar
+    gameVersions = ["1.21.1"]
+    loaders = ["neoforge"]
+    changelog = file("changelog.md").text
+
+    dependencies {
+        required.project("contraption-lights")
+        optional.project("power-grid")
+    }
+}
+
+curseforge {
+    apiKey = project.hasProperty("curseforgeToken") ? project.property("curseforgeToken") : ""
+    project {
+        id = "1679198"
+        changelog = file("changelog.md")
+        releaseType = "release"
+        addGameVersion "1.21.1"
+        addGameVersion "NeoForge"
+        addGameVersion "Java 21"
+        addGameVersion "Client"
+        mainArtifact(jar) {
+            displayName = project.version
+        }
+        relations {
+            requiredDependency "contraption-lights"
+            optionalDependency "power-grid"
+        }
+    }
+}
+
+tasks.register("publishAll") {
+    dependsOn "modrinth", "curseforge"
 }
