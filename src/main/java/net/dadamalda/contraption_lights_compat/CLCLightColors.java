@@ -14,6 +14,9 @@ import xyz.atmerek.contraptionlights.api.LightColorProvider;
 import java.util.Optional;
 
 public class CLCLightColors {
+    private static final int WHITE = 0xFFFFFF;
+    private static final int WARM = 0xFF914D;
+
     public static void register() {
         if(ModList.get().isLoaded("powergrid")) registerPowerGrid();
     }
@@ -26,7 +29,7 @@ public class CLCLightColors {
             if(bulbState == null) return LightColorProvider.PASS;
             DyeColor dyeColor = bulbState.getColor();
             if(dyeColor == null) {
-                return 0xffffff;
+                return WHITE;
             }
             return dyeColor.getFireworkColor();
         });
