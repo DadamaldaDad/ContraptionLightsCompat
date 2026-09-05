@@ -1,4 +1,5 @@
 {
+  "required_mods": ["powergrid"],
   "values": [
     {"block": "powergrid:factory_light", "color":  "white"},
     {"block": "powergrid:factory_light_light", "color":  "white"},
