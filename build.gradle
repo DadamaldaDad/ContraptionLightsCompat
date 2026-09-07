@@ -120,11 +120,15 @@ dependencies {
     runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
     implementation("com.tterrag.registrate:Registrate:${registrate_version}")
 
+    implementation("maven.modrinth:contraption-lights:${contraption_lights_version}")
+    runtimeOnly("maven.modrinth:lambdynamiclights:4.8.11+1.21.1")
+
     implementation("maven.modrinth:power-grid:${power_grid_version}-neoforge")
     runtimeOnly("maven.modrinth:architectury-api:1IiqEQGl")
 
-    implementation("maven.modrinth:contraption-lights:${contraption_lights_version}")
-    runtimeOnly("maven.modrinth:lambdynamiclights:4.8.11+1.21.1")
+    implementation("maven.modrinth:moonlight:uPJlV3eS")
+    implementation("maven.modrinth:supplementaries:DOZiryjL")
+    implementation("maven.modrinth:amendments:OYfMeeUK")
     // Example mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
