@@ -3,6 +3,8 @@
   "values": [
     {"entity": "amendments:medium_fireball", "color": "#FF7024"},
     {"entity": "amendments:medium_dragon_fireball", "color": "#BF4CFF"},
-    {"item": "amendments:dragon_charge", "color": "#BF4CFF", "emission": 10}
+    {"item": "amendments:dragon_charge", "color": "#BF4CFF", "emission": 10},
+    {"block":  "amendments:skull_candle", "color": "#FF7024"},
+    {"block":  "amendments:skull_candle_wall", "color": "#FF7024"}
   ]
 }

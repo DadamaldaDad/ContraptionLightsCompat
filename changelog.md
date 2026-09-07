@@ -2,7 +2,7 @@
 - Made Power Grid dependency optional
 - Added support for Supplementaries (lots of stuff)
 - Added support for Supplementaries Squared (gold candle holders, lanterns)
-- Added support for Amendments (dragon charge, liquid cauldron)
+- Added support for Amendments (dragon charge, skull candles, liquid cauldron)
 - Added support for Vanilla Backport (firefly bush)
 - Added support for Vista (television)
 - Added support for Exposure (flash)

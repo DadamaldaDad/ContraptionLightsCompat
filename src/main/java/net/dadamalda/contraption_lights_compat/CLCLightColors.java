@@ -1,13 +1,18 @@
 package net.dadamalda.contraption_lights_compat;
 
+import net.mehvahdjukaar.amendments.common.tile.CandleSkullBlockTile;
 import net.mehvahdjukaar.amendments.common.tile.LiquidCauldronBlockTile;
 import net.mehvahdjukaar.supplementaries.common.block.tiles.GobletBlockTile;
 import net.mehvahdjukaar.supplementaries.common.block.tiles.JarBlockTile;
 import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.fml.ModList;
 import org.patryk3211.powergrid.collections.ModdedBlockEntities;
 import org.patryk3211.powergrid.collections.ModdedBlocks;
@@ -15,6 +20,7 @@ import org.patryk3211.powergrid.electricity.light.bulb.LightBulbState;
 import org.patryk3211.powergrid.electricity.light.fixture.LightFixtureBlockEntity;
 import xyz.atmerek.contraptionlights.api.ContraptionLightsApi;
 import xyz.atmerek.contraptionlights.api.LightColorProvider;
+import xyz.atmerek.contraptionlights.light.color.ColorLightFeature;
 
 import java.util.HashMap;
 import java.util.Optional;
@@ -25,8 +31,11 @@ public class CLCLightColors {
 
     public static HashMap<ResourceLocation, Integer> SOFT_FLUID_COLORS = new HashMap<>();
 
+    public static HashMap<ResourceLocation, Integer> CANDLE_COLORS = new HashMap<>();
+
     public static void register() {
         addSoftFluidColors();
+        addCandleColors();
         if(ModList.get().isLoaded("powergrid")) registerPowerGrid();
         if(ModList.get().isLoaded("supplementaries")) registerSupplementaries();
         if(ModList.get().isLoaded("amendments")) registerAmendments();
@@ -83,11 +92,38 @@ public class CLCLightColors {
             if(color == null) return LightColorProvider.PASS;
             return color;
         });
+        ContraptionLightsApi.registerLightColor(net.mehvahdjukaar.amendments.reg.ModRegistry.SKULL_CANDLE.get(), CLCLightColors::provideSkullCandleColor);
+        ContraptionLightsApi.registerLightColor(net.mehvahdjukaar.amendments.reg.ModRegistry.SKULL_CANDLE_WALL.get(), CLCLightColors::provideSkullCandleColor);
+        ContraptionLightsApi.registerLightColor(net.mehvahdjukaar.amendments.reg.ModRegistry.SKULL_CANDLE_SOUL.get(), CLCLightColors::provideSkullCandleColor);
+        ContraptionLightsApi.registerLightColor(net.mehvahdjukaar.amendments.reg.ModRegistry.SKULL_CANDLE_SOUL_WALL.get(), CLCLightColors::provideSkullCandleColor);
+    }
+
+    private static int provideSkullCandleColor(BlockGetter level, BlockPos pos, BlockState state) {
+        if(!ColorLightFeature.colorfulCandles()) return LightColorProvider.PASS;
+        Optional<CandleSkullBlockTile> be = level.getBlockEntity(pos, net.mehvahdjukaar.amendments.reg.ModRegistry.SKULL_CANDLE_TILE.get());
+        if(be.isEmpty()) return LightColorProvider.PASS;
+        Block candle = be.get().getCandle().getBlock();
+        ResourceLocation candleLocation = BuiltInRegistries.BLOCK.getKey(candle);
+        return CANDLE_COLORS.getOrDefault(candleLocation, LightColorProvider.PASS);
     }
 
     private static void addSoftFluidColors() {
         SOFT_FLUID_COLORS.put(ResourceLocation.parse("moonlight:lava"), 0xFF661F);
         SOFT_FLUID_COLORS.put(ResourceLocation.parse("moonlight:experience"), 0xBFFF66);
+    }
+
+    private static void addCandleColors() {
+        CANDLE_COLORS.put(ResourceLocation.parse("minecraft:red_candle"), 0xFF1A1A);
+        CANDLE_COLORS.put(ResourceLocation.parse("minecraft:orange_candle"), 0xFF801A);
+        CANDLE_COLORS.put(ResourceLocation.parse("minecraft:yellow_candle"), 0xFFFF1A);
+        CANDLE_COLORS.put(ResourceLocation.parse("minecraft:lime_candle"), 0x1AFF1A);
+        CANDLE_COLORS.put(ResourceLocation.parse("minecraft:green_candle"), 0x4CFF4C);
+        CANDLE_COLORS.put(ResourceLocation.parse("minecraft:cyan_candle"), 0x4CCCFF);
+        CANDLE_COLORS.put(ResourceLocation.parse("minecraft:light_blue_candle"), 0x80A6FF);
+        CANDLE_COLORS.put(ResourceLocation.parse("minecraft:blue_candle"), 0x1A26FF);
+        CANDLE_COLORS.put(ResourceLocation.parse("minecraft:purple_candle"), 0xB24CFF);
+        CANDLE_COLORS.put(ResourceLocation.parse("minecraft:magenta_candle"), 0xFF1AFF);
+        CANDLE_COLORS.put(ResourceLocation.parse("minecraft:pink_candle"), 0xFF66FF);
     }
 
     public static void lightChanged(Level level, BlockPos pos) {
