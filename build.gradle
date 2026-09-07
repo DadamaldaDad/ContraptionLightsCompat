@@ -238,7 +238,7 @@ curseforge {
             requiredDependency "contraption-lights"
             optionalDependency "power-grid"
             optionalDependency "supplementaries"
-            optionalDependency "supplmentaries-squared"
+            optionalDependency "supplementaries-squared"
             optionalDependency "amendments"
             optionalDependency "vanillabackport"
             optionalDependency "vista"
