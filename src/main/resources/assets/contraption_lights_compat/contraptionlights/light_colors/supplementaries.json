@@ -1,0 +1,24 @@
+{
+  "required_mods": ["supplementaries"],
+  "values": [
+    {"block": "supplementaries:redstone_illuminator", "color": "white"},
+    {"block": "supplementaries:stone_lamp", "color": "#FF914C"},
+    {"block": "supplementaries:deepslate_lamp", "color": "#FF914C"},
+    {"block": "supplementaries:blackstone_lamp", "color": "#3385FF"},
+    {"block": "supplementaries:end_stone_lamp", "color": "#D12EFF"},
+    {"block": "supplementaries:fire_pit", "color": "#FFE1B6"},
+    {"block": "supplementaries:crystal_display", "color": "#C259FF"},
+    {"block": "#supplementaries:candle_holders", "color": "#FF7024"},
+    {"block": "supplementaries:candle_holder_red", "color": "#FF1A1A", "condition": "colorful_candles", "priority": 10},
+    {"block": "supplementaries:candle_holder_orange", "color": "#FF801A", "condition": "colorful_candles", "priority": 10},
+    {"block": "supplementaries:candle_holder_yellow", "color": "#FFFF1A", "condition": "colorful_candles", "priority": 10},
+    {"block": "supplementaries:candle_holder_lime", "color": "#1AFF1A", "condition": "colorful_candles", "priority": 10},
+    {"block": "supplementaries:candle_holder_green", "color": "#4CFF4C", "condition": "colorful_candles", "priority": 10},
+    {"block": "supplementaries:candle_holder_cyan", "color": "#4CCCFF", "condition": "colorful_candles", "priority": 10},
+    {"block": "supplementaries:candle_holder_light_blue", "color": "#80A6FF", "condition": "colorful_candles", "priority": 10},
+    {"block": "supplementaries:candle_holder_blue", "color": "#1A26FF", "condition": "colorful_candles", "priority": 10},
+    {"block": "supplementaries:candle_holder_purple", "color": "#B24CFF", "condition": "colorful_candles", "priority": 10},
+    {"block": "supplementaries:candle_holder_magenta", "color": "#FF1AFF", "condition": "colorful_candles", "priority": 10},
+    {"block": "supplementaries:candle_holder_pink", "color": "#FF66FF", "condition": "colorful_candles", "priority": 10}
+  ]
+}

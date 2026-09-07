@@ -1,0 +1,6 @@
+{
+  "required_mods": ["vanillabackport"],
+  "values": [
+    {"block": "minecraft:firefly_bush", "color": "#FFFFE1"}
+  ]
+}
