@@ -1,0 +1,6 @@
+{
+  "required_mods": ["createpropulsion"],
+  "values": [
+    {"block": "createpropulsion:solid_burner", "color": "#FF914C"}
+  ]
+}

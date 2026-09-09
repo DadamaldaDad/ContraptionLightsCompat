@@ -1,0 +1,9 @@
+{
+  "required_mods": ["aeronautics"],
+  "values": [
+    {"block": "aeronautics:adjustable_burner", "state": {"variant": "fire"}, "color": "#FF7024"},
+    {"block": "aeronautics:adjustable_burner", "state": {"variant": "soulful"}, "color": "#3385FF"},
+    {"block": "aeronautics:levitite", "color": "#B2FFBB"},
+    {"block": "aeronautics:pearlescent_levitite", "color": "#FFD6C9"}
+  ]
+}

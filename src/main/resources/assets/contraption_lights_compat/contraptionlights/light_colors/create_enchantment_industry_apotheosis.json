@@ -1,0 +1,7 @@
+{
+  "required_mods": ["create_enchantment_industry", "apotheosis"],
+  "values": [
+    {"block": "create_enchantment_industry:blaze_composer", "color": "#FF7024"},
+    {"block": "create_enchantment_industry:blaze_composer", "state": {"blaze": "seething"}, "color": "#3385FF"}
+  ]
+}

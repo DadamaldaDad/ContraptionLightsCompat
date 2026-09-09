@@ -1,0 +1,6 @@
+{
+  "required_mods": ["electroenergetics"],
+  "values": [
+    {"block": "electroenergetics:bulb", "color": "white"}
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "required_mods": ["farmersdelight"],
+  "values": [
+    {"block": "farmersdelight:stove", "color": "#FF7024"},
+    {"block": "farmersdelight:gleaming_salad_block", "color": "#FF6317"}
+  ]
+}

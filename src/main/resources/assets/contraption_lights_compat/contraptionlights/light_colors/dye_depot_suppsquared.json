@@ -1,0 +1,21 @@
+{
+  "required_mods": ["dye_depot", suppsquared"],
+  "values": [
+    {"block": "suppsquared:gold_candle_holder_maroon", "condition": "colorful_candles", "priority": 10, "color": "#FF482B"},
+    {"block": "suppsquared:gold_candle_holder_rose", "condition": "colorful_candles", "priority": 10, "color": "#FF75B3"},
+    {"block": "suppsquared:gold_candle_holder_coral", "condition": "colorful_candles", "priority": 10, "color": "#FF9A73"},
+    {"block": "suppsquared:gold_candle_holder_indigo", "condition": "colorful_candles", "priority": 10, "color": "#AF99FF"},
+    {"block": "suppsquared:gold_candle_holder_navy", "condition": "colorful_candles", "priority": 10, "color": "#639CFF"},
+    {"block": "suppsquared:gold_candle_holder_slate", "condition": "colorful_candles", "priority": 10, "color": "#A1C5FF"},
+    {"block": "suppsquared:gold_candle_holder_olive", "condition": "colorful_candles", "priority": 10, "color": "#FFFC33"},
+    {"block": "suppsquared:gold_candle_holder_amber", "condition": "colorful_candles", "priority": 10, "color": "#FFD000"},
+    {"block": "suppsquared:gold_candle_holder_beige", "condition": "colorful_candles", "priority": 10, "color": "#FFE8BC"},
+    {"block": "suppsquared:gold_candle_holder_teal", "condition": "colorful_candles", "priority": 10, "color": "#6EFFCC"},
+    {"block": "suppsquared:gold_candle_holder_mint", "condition": "colorful_candles", "priority": 10, "color": "#57FFA0"},
+    {"block": "suppsquared:gold_candle_holder_aqua", "condition": "colorful_candles", "priority": 10, "color": "#54FCFF"},
+    {"block": "suppsquared:gold_candle_holder_verdant", "condition": "colorful_candles", "priority": 10, "color": "#6CFF5E"},
+    {"block": "suppsquared:gold_candle_holder_forest", "condition": "colorful_candles", "priority": 10, "color": "#7BFF3D"},
+    {"block": "suppsquared:gold_candle_holder_ginger", "condition": "colorful_candles", "priority": 10, "color": "#FF8A24"},
+    {"block": "suppsquared:gold_candle_holder_tan", "condition": "colorful_candles", "priority": 10, "color": "#FFBF70"}
+  ]
+}

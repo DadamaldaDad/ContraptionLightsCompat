@@ -1,5 +1,5 @@
 {
-  "required_mods": ["supplementaries", "suppsquared"],
+  "required_mods": ["suppsquared"],
   "values": [
     {"block": "suppsquared:crimson_lantern", "color": "#FF4C12"},
     {"block": "suppsquared:copper_lantern", "color": "#FF873D"},
