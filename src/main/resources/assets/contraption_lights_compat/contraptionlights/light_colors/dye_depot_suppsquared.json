@@ -1,5 +1,5 @@
 {
-  "required_mods": ["dye_depot", suppsquared"],
+  "required_mods": ["dye_depot", "suppsquared"],
   "values": [
     {"block": "suppsquared:gold_candle_holder_maroon", "condition": "colorful_candles", "priority": 10, "color": "#FF482B"},
     {"block": "suppsquared:gold_candle_holder_rose", "condition": "colorful_candles", "priority": 10, "color": "#FF75B3"},
