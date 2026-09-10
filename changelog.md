@@ -1,8 +1,9 @@
-- Updated to Contraption Lights 1.5.0
-- Made Power Grid dependency optional
-- Added support for Supplementaries (lots of stuff)
-- Added support for Supplementaries Squared (gold candle holders, lanterns)
-- Added support for Amendments (dragon charge, skull candles, liquid cauldron)
-- Added support for Vanilla Backport (firefly bush)
-- Added support for Vista (television)
-- Added support for Exposure (flash)
+- Added support for Create (fluid tanks)
+- Added support for Aeronautics (portable engines, hot air burner)
+- Added support for Bits 'n' Bobs (headlamps, lightbulb)
+- Added support for Enchantment Industry (various blocks)
+- Added support for Create Deco (cage lamps)
+- Added support for Propulsion Simulated (solid burner, platinum fluid tanks/vessels)
+- Added support for Dye Depot (candles, blocks from other supported mods)
+- Added support for Electro Energetics (bulb)
+- Added support for Farmer's Delight (stove, gleaming salad)

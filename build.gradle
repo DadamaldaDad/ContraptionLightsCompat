@@ -238,13 +238,6 @@ modrinth {
 
     dependencies {
         required.project("contraption-lights")
-        optional.project("power-grid")
-        optional.project("supplementaries")
-        optional.project("supplementaries-squared")
-        optional.project("amendments")
-        optional.project("vanillabackport")
-        optional.project("vista_tv")
-        optional.project("exposure")
     }
 }
 
@@ -263,13 +256,6 @@ curseforge {
         }
         relations {
             requiredDependency "contraption-lights"
-            optionalDependency "power-grid"
-            optionalDependency "supplementaries"
-            optionalDependency "supplementaries-squared"
-            optionalDependency "amendments"
-            optionalDependency "vanillabackport"
-            optionalDependency "vista"
-            optionalDependency "exposure"
         }
     }
 }
