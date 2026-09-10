@@ -2,6 +2,5 @@
 	"match": {
 		"items": "amendments:dragon_charge"
 	},
-	"luminance": 10,
-	"water_sensitive": true
+	"luminance": 10
 }
