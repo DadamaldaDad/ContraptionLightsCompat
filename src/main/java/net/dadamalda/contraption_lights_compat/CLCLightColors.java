@@ -4,6 +4,9 @@ import com.simibubi.create.AllBlockEntityTypes;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.fluids.tank.CreativeFluidTankBlockEntity;
 import com.simibubi.create.content.fluids.tank.FluidTankBlockEntity;
+import dev.simulated_team.simulated.content.blocks.portable_engine.PortableEngineBlockEntity;
+import dev.simulated_team.simulated.index.SimBlockEntityTypes;
+import dev.simulated_team.simulated.index.SimBlocks;
 import net.mehvahdjukaar.amendments.common.tile.CandleSkullBlockTile;
 import net.mehvahdjukaar.amendments.common.tile.LiquidCauldronBlockTile;
 import net.mehvahdjukaar.supplementaries.common.block.tiles.GobletBlockTile;
@@ -48,6 +51,7 @@ public class CLCLightColors {
         if(ModList.get().isLoaded("supplementaries")) registerSupplementaries();
         if(ModList.get().isLoaded("amendments")) registerAmendments();
         if(ModList.get().isLoaded("create")) registerCreate();
+        if(ModList.get().isLoaded("simulated")) registerSimulated();
     }
 
     private static void registerPowerGrid() {
@@ -131,6 +135,18 @@ public class CLCLightColors {
             ResourceLocation fluidLocation = BuiltInRegistries.FLUID.getKey(fluid);
             return FLUID_COLORS.getOrDefault(fluidLocation, LightColorProvider.PASS);
         });
+    }
+
+    private static void registerSimulated() {
+        for (DyeColor color : DyeColor.values()) {
+            ContraptionLightsApi.registerLightColor(SimBlocks.PORTABLE_ENGINES.get(color).get(), CLCLightColors::handlePortableEngine);
+        }
+    }
+
+    private static int handlePortableEngine(BlockGetter level, BlockPos pos, BlockState state) {
+        Optional<PortableEngineBlockEntity> be = level.getBlockEntity(pos, SimBlockEntityTypes.PORTABLE_ENGINE.get());
+        if(be.isEmpty()) return LightColorProvider.PASS;
+        return be.get().isSuperHeated() ? 0x3385FF : 0xFF914C;
     }
 
     private static void addSoftFluidColors() {

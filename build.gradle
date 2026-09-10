@@ -15,6 +15,20 @@ repositories {
 
     maven { url = "https://maven.createmod.net" } // Create, Ponder, Flywheel
     maven { url = "https://maven.ithundxr.dev/snapshots" } // Registrate
+    maven { url = "https://maven.ryanhcode.dev/releases"}
+    maven { url = "https://maven.blamejared.com" } // JEI, Vazkii's Mods
+    maven {
+        name = "Curios"
+        url = uri("https://maven.theillusivec4.top/")
+    }
+    maven {
+        name = "Squiddev maven cct"
+        url = "https://maven.squiddev.cc/"
+        content {
+            includeGroup("cc.tweaked")
+            includeModule("org.squiddev", "Cobalt")
+        }
+    }
 
     exclusiveContent {
         forRepository {
@@ -129,6 +143,15 @@ dependencies {
     implementation("maven.modrinth:moonlight:uPJlV3eS")
     implementation("maven.modrinth:supplementaries:DOZiryjL")
     implementation("maven.modrinth:amendments:OYfMeeUK")
+
+    implementation("dev.ryanhcode.sable:sable-neoforge-${minecraft_version}:${sable_version}")
+    api("dev.ryanhcode.sable-companion:sable-companion-common-${minecraft_version}:${sable_companion_version}")
+    implementation "dev.ryanhcode.sable-companion:sable-companion-common-${minecraft_version}:${sable_companion_version}"
+    implementation "dev.simulated_team.simulated:simulated-neoforge-1.21.1:${aero_version}"
+    implementation("dev.eriksonn.aeronautics:aeronautics-neoforge-1.21.1:${aero_version}")
+    implementation "dev.ryanhcode.offroad:offroad-neoforge-1.21.1:${aero_version}"
+
+    implementation("maven.modrinth:create-propulsion-simulated:H13U56dc")
     // Example mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
