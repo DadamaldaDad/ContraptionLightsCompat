@@ -1,5 +1,9 @@
 package net.dadamalda.contraption_lights_compat;
 
+import com.simibubi.create.AllBlockEntityTypes;
+import com.simibubi.create.AllBlocks;
+import com.simibubi.create.content.fluids.tank.CreativeFluidTankBlockEntity;
+import com.simibubi.create.content.fluids.tank.FluidTankBlockEntity;
 import net.mehvahdjukaar.amendments.common.tile.CandleSkullBlockTile;
 import net.mehvahdjukaar.amendments.common.tile.LiquidCauldronBlockTile;
 import net.mehvahdjukaar.supplementaries.common.block.tiles.GobletBlockTile;
@@ -13,6 +17,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluid;
 import net.neoforged.fml.ModList;
 import org.patryk3211.powergrid.collections.ModdedBlockEntities;
 import org.patryk3211.powergrid.collections.ModdedBlocks;
@@ -31,14 +36,18 @@ public class CLCLightColors {
 
     public static HashMap<ResourceLocation, Integer> SOFT_FLUID_COLORS = new HashMap<>();
 
+    public static HashMap<ResourceLocation, Integer> FLUID_COLORS = new HashMap<>();
+
     public static HashMap<ResourceLocation, Integer> CANDLE_COLORS = new HashMap<>();
 
     public static void register() {
         addSoftFluidColors();
+        addFluidColors();
         addCandleColors();
         if(ModList.get().isLoaded("powergrid")) registerPowerGrid();
         if(ModList.get().isLoaded("supplementaries")) registerSupplementaries();
         if(ModList.get().isLoaded("amendments")) registerAmendments();
+        if(ModList.get().isLoaded("create")) registerCreate();
     }
 
     private static void registerPowerGrid() {
@@ -107,9 +116,31 @@ public class CLCLightColors {
         return CANDLE_COLORS.getOrDefault(candleLocation, LightColorProvider.PASS);
     }
 
+    private static void registerCreate() {
+        ContraptionLightsApi.registerLightColor(AllBlocks.FLUID_TANK.get(), (level, pos, state) -> {
+            Optional<FluidTankBlockEntity> be = level.getBlockEntity(pos, AllBlockEntityTypes.FLUID_TANK.get());
+            if(be.isEmpty()) return LightColorProvider.PASS;
+            Fluid fluid = be.get().getFluid(0).getFluid();
+            ResourceLocation fluidLocation = BuiltInRegistries.FLUID.getKey(fluid);
+            return FLUID_COLORS.getOrDefault(fluidLocation, LightColorProvider.PASS);
+        });
+        ContraptionLightsApi.registerLightColor(AllBlocks.CREATIVE_FLUID_TANK.get(), (level, pos, state) -> {
+            Optional<CreativeFluidTankBlockEntity> be = level.getBlockEntity(pos, AllBlockEntityTypes.CREATIVE_FLUID_TANK.get());
+            if(be.isEmpty()) return LightColorProvider.PASS;
+            Fluid fluid = be.get().getFluid(0).getFluid();
+            ResourceLocation fluidLocation = BuiltInRegistries.FLUID.getKey(fluid);
+            return FLUID_COLORS.getOrDefault(fluidLocation, LightColorProvider.PASS);
+        });
+    }
+
     private static void addSoftFluidColors() {
         SOFT_FLUID_COLORS.put(ResourceLocation.parse("moonlight:lava"), 0xFF661F);
         SOFT_FLUID_COLORS.put(ResourceLocation.parse("moonlight:experience"), 0xBFFF66);
+    }
+
+    private static void addFluidColors() {
+        FLUID_COLORS.put(ResourceLocation.parse("minecraft:lava"), 0xFF661F);
+        FLUID_COLORS.put(ResourceLocation.parse("create_enchantment_industry:experience"), 0xBFFF66);
     }
 
     private static void addCandleColors() {
