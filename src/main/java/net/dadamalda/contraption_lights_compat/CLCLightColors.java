@@ -8,6 +8,10 @@ import com.simibubi.create.AllBlockEntityTypes;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.fluids.tank.CreativeFluidTankBlockEntity;
 import com.simibubi.create.content.fluids.tank.FluidTankBlockEntity;
+import dev.propulsionteam.propulsionsimulated.content.platinum.PlatinumFluidTankBlockEntity;
+import dev.propulsionteam.propulsionsimulated.content.platinum.PlatinumFluidVesselBlockEntity;
+import dev.propulsionteam.propulsionsimulated.registries.PropulsionBlockEntities;
+import dev.propulsionteam.propulsionsimulated.registries.PropulsionBlocks;
 import dev.simulated_team.simulated.content.blocks.portable_engine.PortableEngineBlockEntity;
 import dev.simulated_team.simulated.index.SimBlockEntityTypes;
 import dev.simulated_team.simulated.index.SimBlocks;
@@ -59,6 +63,7 @@ public class CLCLightColors {
         if(ModList.get().isLoaded("create")) registerCreate();
         if(ModList.get().isLoaded("simulated")) registerSimulated();
         if(ModList.get().isLoaded("bits_n_bobs")) registerBitsNBobs();
+        if(ModList.get().isLoaded("createpropulsion")) registerPropulsionSimulated();
     }
 
     private static void registerPowerGrid() {
@@ -154,6 +159,23 @@ public class CLCLightColors {
         Optional<PortableEngineBlockEntity> be = level.getBlockEntity(pos, SimBlockEntityTypes.PORTABLE_ENGINE.get());
         if(be.isEmpty()) return LightColorProvider.PASS;
         return be.get().isSuperHeated() ? 0x3385FF : 0xFF914C;
+    }
+
+    private static void registerPropulsionSimulated() {
+        ContraptionLightsApi.registerLightColor(PropulsionBlocks.PLATINUM_FLUID_TANK.get(), (level, pos, state) -> {
+            Optional<PlatinumFluidTankBlockEntity> be = level.getBlockEntity(pos, PropulsionBlockEntities.PLATINUM_FLUID_TANK_BLOCK_ENTITY.get());
+            if(be.isEmpty()) return LightColorProvider.PASS;
+            Fluid fluid = be.get().getFluid(0).getFluid();
+            ResourceLocation fluidLocation = BuiltInRegistries.FLUID.getKey(fluid);
+            return FLUID_COLORS.getOrDefault(fluidLocation, LightColorProvider.PASS);
+        });
+        ContraptionLightsApi.registerLightColor(PropulsionBlocks.PLATINUM_FLUID_VESSEL.get(), (level, pos, state) -> {
+            Optional<PlatinumFluidVesselBlockEntity> be = level.getBlockEntity(pos, PropulsionBlockEntities.PLATINUM_FLUID_VESSEL_BLOCK_ENTITY.get());
+            if(be.isEmpty()) return LightColorProvider.PASS;
+            Fluid fluid = be.get().getFluid(0).getFluid();
+            ResourceLocation fluidLocation = BuiltInRegistries.FLUID.getKey(fluid);
+            return FLUID_COLORS.getOrDefault(fluidLocation, LightColorProvider.PASS);
+        });
     }
 
     private static void registerBitsNBobs() {
