@@ -171,6 +171,23 @@ public class CLCLightColors {
         CANDLE_COLORS.put(ResourceLocation.parse("minecraft:purple_candle"), 0xB24CFF);
         CANDLE_COLORS.put(ResourceLocation.parse("minecraft:magenta_candle"), 0xFF1AFF);
         CANDLE_COLORS.put(ResourceLocation.parse("minecraft:pink_candle"), 0xFF66FF);
+
+        CANDLE_COLORS.put(ResourceLocation.parse("dye_depot:maroon_candle"), 0xFF482B);
+        CANDLE_COLORS.put(ResourceLocation.parse("dye_depot:rose_candle"), 0xFF75B3);
+        CANDLE_COLORS.put(ResourceLocation.parse("dye_depot:coral_candle"), 0xFF9A73);
+        CANDLE_COLORS.put(ResourceLocation.parse("dye_depot:indigo_candle"), 0xAF99FF);
+        CANDLE_COLORS.put(ResourceLocation.parse("dye_depot:navy_candle"), 0x639CFF);
+        CANDLE_COLORS.put(ResourceLocation.parse("dye_depot:slate_candle"), 0xA1C5FF);
+        CANDLE_COLORS.put(ResourceLocation.parse("dye_depot:olive_candle"), 0xFFFC33);
+        CANDLE_COLORS.put(ResourceLocation.parse("dye_depot:amber_candle"), 0xFFD000);
+        CANDLE_COLORS.put(ResourceLocation.parse("dye_depot:beige_candle"), 0xFFE8BC);
+        CANDLE_COLORS.put(ResourceLocation.parse("dye_depot:teal_candle"), 0x6EFFCC);
+        CANDLE_COLORS.put(ResourceLocation.parse("dye_depot:mint_candle"), 0x57FFA0);
+        CANDLE_COLORS.put(ResourceLocation.parse("dye_depot:aqua_candle"), 0x54FCFF);
+        CANDLE_COLORS.put(ResourceLocation.parse("dye_depot:verdant_candle"), 0x6CFF5E);
+        CANDLE_COLORS.put(ResourceLocation.parse("dye_depot:forest_candle"), 0x7BFF3D);
+        CANDLE_COLORS.put(ResourceLocation.parse("dye_depot:ginger_candle"), 0xFF8A24);
+        CANDLE_COLORS.put(ResourceLocation.parse("dye_depot:tan_candle"), 0xFFBF70);
     }
 
     public static void lightChanged(Level level, BlockPos pos) {
