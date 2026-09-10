@@ -1,5 +1,9 @@
 package net.dadamalda.contraption_lights_compat;
 
+import com.kipti.bnb.content.trinkets.light.headlamp.HeadlampBlockEntity;
+import com.kipti.bnb.content.trinkets.light.headlamp.rendering.HeadlampConstants;
+import com.kipti.bnb.registry.content.BnbBlockEntities;
+import com.kipti.bnb.registry.content.blocks.BnbTrinketBlocks;
 import com.simibubi.create.AllBlockEntityTypes;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.fluids.tank.CreativeFluidTankBlockEntity;
@@ -30,7 +34,9 @@ import xyz.atmerek.contraptionlights.api.ContraptionLightsApi;
 import xyz.atmerek.contraptionlights.api.LightColorProvider;
 import xyz.atmerek.contraptionlights.light.color.ColorLightFeature;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
 
 public class CLCLightColors {
@@ -52,6 +58,7 @@ public class CLCLightColors {
         if(ModList.get().isLoaded("amendments")) registerAmendments();
         if(ModList.get().isLoaded("create")) registerCreate();
         if(ModList.get().isLoaded("simulated")) registerSimulated();
+        if(ModList.get().isLoaded("bits_n_bobs")) registerBitsNBobs();
     }
 
     private static void registerPowerGrid() {
@@ -147,6 +154,23 @@ public class CLCLightColors {
         Optional<PortableEngineBlockEntity> be = level.getBlockEntity(pos, SimBlockEntityTypes.PORTABLE_ENGINE.get());
         if(be.isEmpty()) return LightColorProvider.PASS;
         return be.get().isSuperHeated() ? 0x3385FF : 0xFF914C;
+    }
+
+    private static void registerBitsNBobs() {
+        ContraptionLightsApi.registerLightColor(BnbTrinketBlocks.HEADLAMP.get(), (level, pos, state) -> {
+            Optional<HeadlampBlockEntity> be = level.getBlockEntity(pos, BnbBlockEntities.HEADLAMP.get());
+            if(be.isEmpty()) return LightColorProvider.PASS;
+            List<Integer> colors = new ArrayList<>();
+            for(byte placement : be.get().getActivePlacements()) {
+                if(placement == 0) continue;
+                if(placement == 1) {
+                    colors.add(ColorHelper.brighten(DyeColor.WHITE.getFireworkColor()));
+                } else {
+                    colors.add(ColorHelper.brighten(DyeColor.values()[placement-HeadlampConstants.DYE_COLOR_OFFSET].getFireworkColor()));
+                }
+            }
+            return ColorHelper.mix(colors);
+        });
     }
 
     private static void addSoftFluidColors() {
