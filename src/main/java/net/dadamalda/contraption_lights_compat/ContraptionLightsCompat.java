@@ -1,10 +1,12 @@
 package net.dadamalda.contraption_lights_compat;
 
 import com.mojang.logging.LogUtils;
+import net.dadamalda.contraption_lights_compat.data_loading.ColorMapReloadListener;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.RegisterClientReloadListenersEvent;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
@@ -19,6 +21,7 @@ public class ContraptionLightsCompat {
     public ContraptionLightsCompat(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::clientSetup);
+        modEventBus.addListener(this::registerReloadListeners);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (Create_colour_grid) to respond directly to events.
@@ -28,5 +31,9 @@ public class ContraptionLightsCompat {
 
     private void clientSetup(FMLClientSetupEvent event) {
         CLCLightColors.register();
+    }
+
+    private void registerReloadListeners(RegisterClientReloadListenersEvent event) {
+        event.registerReloadListener(new ColorMapReloadListener());
     }
 }

@@ -6,15 +6,13 @@ import com.kipti.bnb.registry.content.BnbBlockEntities;
 import com.kipti.bnb.registry.content.blocks.BnbTrinketBlocks;
 import com.simibubi.create.AllBlockEntityTypes;
 import com.simibubi.create.AllBlocks;
-import com.simibubi.create.content.fluids.tank.CreativeFluidTankBlockEntity;
 import com.simibubi.create.content.fluids.tank.FluidTankBlockEntity;
-import dev.propulsionteam.propulsionsimulated.content.platinum.PlatinumFluidTankBlockEntity;
-import dev.propulsionteam.propulsionsimulated.content.platinum.PlatinumFluidVesselBlockEntity;
 import dev.propulsionteam.propulsionsimulated.registries.PropulsionBlockEntities;
 import dev.propulsionteam.propulsionsimulated.registries.PropulsionBlocks;
 import dev.simulated_team.simulated.content.blocks.portable_engine.PortableEngineBlockEntity;
 import dev.simulated_team.simulated.index.SimBlockEntityTypes;
 import dev.simulated_team.simulated.index.SimBlocks;
+import net.dadamalda.contraption_lights_compat.data_loading.ColorMaps;
 import net.mehvahdjukaar.amendments.common.tile.CandleSkullBlockTile;
 import net.mehvahdjukaar.amendments.common.tile.LiquidCauldronBlockTile;
 import net.mehvahdjukaar.supplementaries.common.block.tiles.GobletBlockTile;
@@ -27,6 +25,7 @@ import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
 import net.neoforged.fml.ModList;
@@ -44,18 +43,12 @@ import java.util.List;
 import java.util.Optional;
 
 public class CLCLightColors {
-    private static final int WHITE = 0xFFFFFF;
-    private static final int WARM = 0xFF914D;
-
-    public static HashMap<ResourceLocation, Integer> SOFT_FLUID_COLORS = new HashMap<>();
-
-    public static HashMap<ResourceLocation, Integer> FLUID_COLORS = new HashMap<>();
+    public static final int WHITE = 0xFFFFFF;
+    public static final int WARM = 0xFF914D;
 
     public static HashMap<ResourceLocation, Integer> CANDLE_COLORS = new HashMap<>();
 
     public static void register() {
-        addSoftFluidColors();
-        addFluidColors();
         addCandleColors();
         if(ModList.get().isLoaded("powergrid")) registerPowerGrid();
         if(ModList.get().isLoaded("supplementaries")) registerSupplementaries();
@@ -85,22 +78,20 @@ public class CLCLightColors {
             Optional<JarBlockTile> be = level.getBlockEntity(pos, ModRegistry.JAR_TILE.get());
             if(be.isEmpty()) return LightColorProvider.PASS;
             ResourceLocation fluid = be.get().getSoftFluidTank().getFluid().fluidKey().location();
-            Integer color = SOFT_FLUID_COLORS.get(fluid);
-            if(color == null && level instanceof Level level2) {
+            int color = ColorMaps.SOFT_FLUIDS.getOrPass(fluid);
+            if(color == LightColorProvider.PASS && level instanceof Level level2) {
                 color = be.get().getSoftFluidTank().getCachedParticleColor(level2, pos);
             }
-            if(color == null) return LightColorProvider.PASS;
             return color;
         });
         ContraptionLightsApi.registerLightColor(ModRegistry.GOBLET.get(), (level, pos, state) -> {
             Optional<GobletBlockTile> be = level.getBlockEntity(pos, ModRegistry.GOBLET_TILE.get());
             if(be.isEmpty()) return LightColorProvider.PASS;
             ResourceLocation fluid = be.get().getSoftFluidTank().getFluid().fluidKey().location();
-            Integer color = SOFT_FLUID_COLORS.get(fluid);
-            if(color == null && level instanceof Level level2) {
+            int color = ColorMaps.SOFT_FLUIDS.getOrPass(fluid);
+            if(color == LightColorProvider.PASS && level instanceof Level level2) {
                 color = be.get().getSoftFluidTank().getCachedParticleColor(level2, pos);
             }
-            if(color == null) return LightColorProvider.PASS;
             return color;
         });
     }
@@ -110,11 +101,10 @@ public class CLCLightColors {
             Optional<LiquidCauldronBlockTile> be = level.getBlockEntity(pos, net.mehvahdjukaar.amendments.reg.ModRegistry.LIQUID_CAULDRON_TILE.get());
             if(be.isEmpty()) return LightColorProvider.PASS;
             ResourceLocation fluid = be.get().getSoftFluidTank().getFluid().fluidKey().location();
-            Integer color = SOFT_FLUID_COLORS.get(fluid);
-            if(color == null && level instanceof Level level2) {
+            int color = ColorMaps.SOFT_FLUIDS.getOrPass(fluid);
+            if(color == LightColorProvider.PASS && level instanceof Level level2) {
                 color = be.get().getSoftFluidTank().getCachedParticleColor(level2, pos);
             }
-            if(color == null) return LightColorProvider.PASS;
             return color;
         });
         ContraptionLightsApi.registerLightColor(net.mehvahdjukaar.amendments.reg.ModRegistry.SKULL_CANDLE.get(), CLCLightColors::provideSkullCandleColor);
@@ -133,20 +123,10 @@ public class CLCLightColors {
     }
 
     private static void registerCreate() {
-        ContraptionLightsApi.registerLightColor(AllBlocks.FLUID_TANK.get(), (level, pos, state) -> {
-            Optional<FluidTankBlockEntity> be = level.getBlockEntity(pos, AllBlockEntityTypes.FLUID_TANK.get());
-            if(be.isEmpty()) return LightColorProvider.PASS;
-            Fluid fluid = be.get().getFluid(0).getFluid();
-            ResourceLocation fluidLocation = BuiltInRegistries.FLUID.getKey(fluid);
-            return FLUID_COLORS.getOrDefault(fluidLocation, LightColorProvider.PASS);
-        });
-        ContraptionLightsApi.registerLightColor(AllBlocks.CREATIVE_FLUID_TANK.get(), (level, pos, state) -> {
-            Optional<CreativeFluidTankBlockEntity> be = level.getBlockEntity(pos, AllBlockEntityTypes.CREATIVE_FLUID_TANK.get());
-            if(be.isEmpty()) return LightColorProvider.PASS;
-            Fluid fluid = be.get().getFluid(0).getFluid();
-            ResourceLocation fluidLocation = BuiltInRegistries.FLUID.getKey(fluid);
-            return FLUID_COLORS.getOrDefault(fluidLocation, LightColorProvider.PASS);
-        });
+        ContraptionLightsApi.registerLightColor(AllBlocks.FLUID_TANK.get(),
+                createFluidTankProvider(AllBlockEntityTypes.FLUID_TANK.get()));
+        ContraptionLightsApi.registerLightColor(AllBlocks.CREATIVE_FLUID_TANK.get(),
+                createFluidTankProvider(AllBlockEntityTypes.CREATIVE_FLUID_TANK.get()));
     }
 
     private static void registerSimulated() {
@@ -162,20 +142,10 @@ public class CLCLightColors {
     }
 
     private static void registerPropulsionSimulated() {
-        ContraptionLightsApi.registerLightColor(PropulsionBlocks.PLATINUM_FLUID_TANK.get(), (level, pos, state) -> {
-            Optional<PlatinumFluidTankBlockEntity> be = level.getBlockEntity(pos, PropulsionBlockEntities.PLATINUM_FLUID_TANK_BLOCK_ENTITY.get());
-            if(be.isEmpty()) return LightColorProvider.PASS;
-            Fluid fluid = be.get().getFluid(0).getFluid();
-            ResourceLocation fluidLocation = BuiltInRegistries.FLUID.getKey(fluid);
-            return FLUID_COLORS.getOrDefault(fluidLocation, LightColorProvider.PASS);
-        });
-        ContraptionLightsApi.registerLightColor(PropulsionBlocks.PLATINUM_FLUID_VESSEL.get(), (level, pos, state) -> {
-            Optional<PlatinumFluidVesselBlockEntity> be = level.getBlockEntity(pos, PropulsionBlockEntities.PLATINUM_FLUID_VESSEL_BLOCK_ENTITY.get());
-            if(be.isEmpty()) return LightColorProvider.PASS;
-            Fluid fluid = be.get().getFluid(0).getFluid();
-            ResourceLocation fluidLocation = BuiltInRegistries.FLUID.getKey(fluid);
-            return FLUID_COLORS.getOrDefault(fluidLocation, LightColorProvider.PASS);
-        });
+        ContraptionLightsApi.registerLightColor(PropulsionBlocks.PLATINUM_FLUID_TANK.get(),
+                createFluidTankProvider(PropulsionBlockEntities.PLATINUM_FLUID_TANK_BLOCK_ENTITY.get()));
+        ContraptionLightsApi.registerLightColor(PropulsionBlocks.PLATINUM_FLUID_VESSEL.get(),
+                createFluidTankProvider(PropulsionBlockEntities.PLATINUM_FLUID_VESSEL_BLOCK_ENTITY.get()));
     }
 
     private static void registerBitsNBobs() {
@@ -195,14 +165,14 @@ public class CLCLightColors {
         });
     }
 
-    private static void addSoftFluidColors() {
-        SOFT_FLUID_COLORS.put(ResourceLocation.parse("moonlight:lava"), 0xFF661F);
-        SOFT_FLUID_COLORS.put(ResourceLocation.parse("moonlight:experience"), 0xBFFF66);
-    }
-
-    private static void addFluidColors() {
-        FLUID_COLORS.put(ResourceLocation.parse("minecraft:lava"), 0xFF661F);
-        FLUID_COLORS.put(ResourceLocation.parse("create_enchantment_industry:experience"), 0xBFFF66);
+    private static LightColorProvider createFluidTankProvider(BlockEntityType<? extends FluidTankBlockEntity> beType) {
+        return (level, pos, state) -> {
+            Optional<? extends FluidTankBlockEntity> be = level.getBlockEntity(pos, beType);
+            if(be.isEmpty()) return LightColorProvider.PASS;
+            Fluid fluid = be.get().getFluid(0).getFluid();
+            ResourceLocation fluidLocation = BuiltInRegistries.FLUID.getKey(fluid);
+            return ColorMaps.FLUIDS.getOrPass(fluidLocation);
+        };
     }
 
     private static void addCandleColors() {
