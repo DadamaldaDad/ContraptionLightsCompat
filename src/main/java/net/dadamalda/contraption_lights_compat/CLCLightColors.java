@@ -12,6 +12,8 @@ import dev.propulsionteam.propulsionsimulated.registries.PropulsionBlocks;
 import dev.simulated_team.simulated.content.blocks.portable_engine.PortableEngineBlockEntity;
 import dev.simulated_team.simulated.index.SimBlockEntityTypes;
 import dev.simulated_team.simulated.index.SimBlocks;
+import io.github.mortuusars.chalk.Chalk;
+import io.github.mortuusars.chalk.world.block.MarkBlockEntity;
 import net.dadamalda.contraption_lights_compat.data_loading.ColorMaps;
 import net.mehvahdjukaar.amendments.common.tile.CandleSkullBlockTile;
 import net.mehvahdjukaar.amendments.common.tile.LiquidCauldronBlockTile;
@@ -57,6 +59,7 @@ public class CLCLightColors {
         if(ModList.get().isLoaded("simulated")) registerSimulated();
         if(ModList.get().isLoaded("bits_n_bobs")) registerBitsNBobs();
         if(ModList.get().isLoaded("createpropulsion")) registerPropulsionSimulated();
+        if(ModList.get().isLoaded("chalk")) registerChalk();
     }
 
     private static void registerPowerGrid() {
@@ -161,6 +164,19 @@ public class CLCLightColors {
                     colors.add(ColorHelper.brighten(DyeColor.values()[placement-HeadlampConstants.DYE_COLOR_OFFSET].getFireworkColor()));
                 }
             }
+            return ColorHelper.mix(colors);
+        });
+    }
+
+    private static void registerChalk() {
+        ContraptionLightsApi.registerLightColor(Chalk.Blocks.MARK.get(), (level, pos, state) -> {
+            Optional<MarkBlockEntity> be = level.getBlockEntity(pos, Chalk.BlockEntityTypes.MARK.get());
+            if(be.isEmpty()) return LightColorProvider.PASS;
+            List<Integer> colors = new ArrayList<>();
+            be.get().getMarks().forEach((direction, mark) -> {
+                if(!mark.glowing()) return;
+                colors.add(ColorHelper.brighten(mark.color()));
+            });
             return ColorHelper.mix(colors);
         });
     }
