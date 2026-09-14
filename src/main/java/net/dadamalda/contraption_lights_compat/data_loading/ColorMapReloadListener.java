@@ -27,6 +27,8 @@ public class ColorMapReloadListener extends SimpleJsonResourceReloadListener {
                 for (Map.Entry<String, JsonElement> fluid : fluids.asMap().entrySet()) {
                     if(!fluid.getValue().isJsonPrimitive()) continue;
                     ColorMaps.FLUIDS.put(fluid.getKey(), fluid.getValue().getAsString());
+                    if(!isMoonlightLoaded) continue;
+                    ColorMaps.SOFT_FLUIDS.put(fluid.getKey(), fluid.getValue().getAsString());
                 }
             }
             if(isMoonlightLoaded && root.get("soft_fluids") != null && root.get("soft_fluids").isJsonObject()) {
