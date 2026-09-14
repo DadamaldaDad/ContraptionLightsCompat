@@ -1,5 +1,7 @@
 package net.dadamalda.contraption_lights_compat;
 
+import com.hlysine.create_connected.registries.CCBlockEntityTypes;
+import com.hlysine.create_connected.registries.CCBlocks;
 import com.kipti.bnb.content.trinkets.light.headlamp.HeadlampBlockEntity;
 import com.kipti.bnb.content.trinkets.light.headlamp.rendering.HeadlampConstants;
 import com.kipti.bnb.registry.content.BnbBlockEntities;
@@ -59,6 +61,7 @@ public class CLCLightColors {
         if(ModList.get().isLoaded("simulated")) registerSimulated();
         if(ModList.get().isLoaded("bits_n_bobs")) registerBitsNBobs();
         if(ModList.get().isLoaded("createpropulsion")) registerPropulsionSimulated();
+        if(ModList.get().isLoaded("create_connected")) registerCreateConnected();
         if(ModList.get().isLoaded("chalk")) registerChalk();
     }
 
@@ -149,6 +152,13 @@ public class CLCLightColors {
                 createFluidTankProvider(PropulsionBlockEntities.PLATINUM_FLUID_TANK_BLOCK_ENTITY.get()));
         ContraptionLightsApi.registerLightColor(PropulsionBlocks.PLATINUM_FLUID_VESSEL.get(),
                 createFluidTankProvider(PropulsionBlockEntities.PLATINUM_FLUID_VESSEL_BLOCK_ENTITY.get()));
+    }
+
+    private static void registerCreateConnected() {
+        ContraptionLightsApi.registerLightColor(CCBlocks.FLUID_VESSEL.get(),
+                createFluidTankProvider(CCBlockEntityTypes.FLUID_VESSEL.get()));
+        ContraptionLightsApi.registerLightColor(CCBlocks.CREATIVE_FLUID_VESSEL.get(),
+                createFluidTankProvider(CCBlockEntityTypes.CREATIVE_FLUID_VESSEL.get()));
     }
 
     private static void registerBitsNBobs() {
