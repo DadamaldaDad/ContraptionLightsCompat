@@ -1,0 +1,7 @@
+{
+	"match": {
+		"items": "farmersdelight:glow_berry_custard"
+	},
+	"luminance": 8,
+  "silence_error": true
+}

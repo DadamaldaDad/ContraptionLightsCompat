@@ -1,0 +1,23 @@
+{
+  "required_mods": ["natures_spirit"],
+  "values": [
+    {"block": "natures_spirit:paper_lantern", "color": "#FF914C"},
+    {"block": "natures_spirit:white_paper_lantern", "color": "white"},
+    {"block": "natures_spirit:light_gray_paper_lantern", "color": "white"},
+    {"block": "natures_spirit:gray_paper_lantern", "color": "white"},
+    {"block": "natures_spirit:black_paper_lantern", "color": "white"},
+    {"block": "natures_spirit:red_paper_lantern", "color": "#FF1A1A"},
+    {"block": "natures_spirit:orange_paper_lantern", "color": "#FF801A"},
+    {"block": "natures_spirit:yellow_paper_lantern", "color": "#FFFF1A"},
+    {"block": "natures_spirit:lime_paper_lantern", "color": "#1AFF1A"},
+    {"block": "natures_spirit:green_paper_lantern", "color": "#4CFF4C"},
+    {"block": "natures_spirit:cyan_paper_lantern", "color": "#4CCCFF"},
+    {"block": "natures_spirit:light_blue_paper_lantern", "color": "#80A6FF"},
+    {"block": "natures_spirit:blue_paper_lantern", "color": "#1A26FF"},
+    {"block": "natures_spirit:purple_paper_lantern", "color": "#B24CFF"},
+    {"block": "natures_spirit:magenta_paper_lantern", "color": "#FF1AFF"},
+    {"block": "natures_spirit:pink_paper_lantern", "color": "#FF66FF"},
+    {"block": "natures_spirit:shiitake_mushroom", "color": "#FFB273"},
+    {"block": "natures_spirit:gray_polypore", "color": "#FFB273"}
+  ]
+}

@@ -1,0 +1,7 @@
+{
+	"match": {
+		"items": "create_enchantment_industry:crystal_essence_bucket"
+	},
+	"luminance": 15,
+  "silence_error": true
+}

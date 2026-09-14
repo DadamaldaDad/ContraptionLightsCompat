@@ -1,0 +1,10 @@
+{
+	"match": {
+		"items": [
+      "mynethersdelight:stuffed_pepper",
+      "mynethersdelight:spicy_skewer"
+    ]
+	},
+	"luminance": 5,
+  "silence_error": true
+}

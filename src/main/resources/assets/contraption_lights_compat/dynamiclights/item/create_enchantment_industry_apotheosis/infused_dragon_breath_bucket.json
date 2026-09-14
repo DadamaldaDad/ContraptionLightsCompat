@@ -1,0 +1,7 @@
+{
+	"match": {
+		"items": "create_enchantment_industry:infused_dragon_breath_bucket"
+	},
+	"luminance": 15,
+  "silence_error": true
+}

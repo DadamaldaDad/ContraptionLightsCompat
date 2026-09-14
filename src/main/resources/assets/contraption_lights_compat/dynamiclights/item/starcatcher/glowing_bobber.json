@@ -1,0 +1,7 @@
+{
+	"match": {
+		"items": "starcatcher:glowing_bobber"
+	},
+	"luminance": 14,
+  "silence_error": true
+}

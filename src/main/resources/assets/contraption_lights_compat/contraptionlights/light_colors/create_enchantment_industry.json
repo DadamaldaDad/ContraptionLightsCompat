@@ -7,6 +7,7 @@
     {"block": "create_enchantment_industry:blaze_enchanter", "color": "#FF7024"},
     {"block": "create_enchantment_industry:blaze_enchanter", "state": {"blaze": "seething"}, "color": "#3385FF"},
     {"block": "create_enchantment_industry:blaze_forger", "color": "#FF7024"},
-    {"block": "create_enchantment_industry:blaze_forger", "state": {"blaze": "seething"}, "color": "#3385FF"}
+    {"block": "create_enchantment_industry:blaze_forger", "state": {"blaze": "seething"}, "color": "#3385FF"},
+    {"item": "create_enchantment_industry:experience_bucket", "color": "#BFFF66", "emission": 15}
   ]
 }

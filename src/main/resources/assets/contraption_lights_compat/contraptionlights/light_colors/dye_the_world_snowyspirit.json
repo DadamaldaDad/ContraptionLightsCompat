@@ -1,0 +1,21 @@
+{
+  "required_mods": ["dye_the_world", "snowyspirit"],
+  "values": [
+    {"block": "snowyspirit:glow_lights_maroon", "color": "#FF482B"},
+    {"block": "snowyspirit:glow_lights_rose", "color": "#FF75B3"},
+    {"block": "snowyspirit:glow_lights_coral", "color": "#FF9A73"},
+    {"block": "snowyspirit:glow_lights_indigo", "color": "#AF99FF"},
+    {"block": "snowyspirit:glow_lights_navy", "color": "#639CFF"},
+    {"block": "snowyspirit:glow_lights_slate", "color": "#A1C5FF"},
+    {"block": "snowyspirit:glow_lights_olive", "color": "#FFFC33"},
+    {"block": "snowyspirit:glow_lights_amber", "color": "#FFD000"},
+    {"block": "snowyspirit:glow_lights_beige", "color": "#FFE8BC"},
+    {"block": "snowyspirit:glow_lights_teal", "color": "#6EFFCC"},
+    {"block": "snowyspirit:glow_lights_mint", "color": "#57FFA0"},
+    {"block": "snowyspirit:glow_lights_aqua", "color": "#54FCFF"},
+    {"block": "snowyspirit:glow_lights_verdant", "color": "#6CFF5E"},
+    {"block": "snowyspirit:glow_lights_forest", "color": "#7BFF3D"},
+    {"block": "snowyspirit:glow_lights_ginger", "color": "#FF8A24"},
+    {"block": "snowyspirit:glow_lights_tan", "color": "#FFBF70"}
+  ]
+}

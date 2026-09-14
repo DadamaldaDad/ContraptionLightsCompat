@@ -1,0 +1,10 @@
+{
+	"match": {
+		"items": [
+      "mynethersdelight:bullet_pepper",
+      "mynethersdelight:pepper_powder"
+    ]
+	},
+	"luminance": 10,
+  "silence_error": true
+}

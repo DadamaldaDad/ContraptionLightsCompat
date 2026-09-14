@@ -1,0 +1,22 @@
+{
+  "required_mods": ["snowyspirit"],
+  "values": [
+    {"block": "snowyspirit:glow_lights_prismatic", "color": "rainbow"},
+    {"block": "snowyspirit:glow_lights_white", "color": "white"},
+    {"block": "snowyspirit:glow_lights_light_gray", "color": "white"},
+    {"block": "snowyspirit:glow_lights_gray", "color": "white"},
+    {"block": "snowyspirit:glow_lights_black", "color": "white"},
+    {"block": "snowyspirit:glow_lights_brown", "color": "#FF7024"},
+    {"block": "snowyspirit:glow_lights_red", "color": "#FF1A1A"},
+    {"block": "snowyspirit:glow_lights_orange", "color": "#FF801A"},
+    {"block": "snowyspirit:glow_lights_yellow", "color": "#FFFF1A"},
+    {"block": "snowyspirit:glow_lights_lime", "color": "#1AFF1A"},
+    {"block": "snowyspirit:glow_lights_green", "color": "#4CFF4C"},
+    {"block": "snowyspirit:glow_lights_cyan", "color": "#4CCCFF"},
+    {"block": "snowyspirit:glow_lights_light_blue", "color": "#80A6FF"},
+    {"block": "snowyspirit:glow_lights_blue", "color": "#1A26FF"},
+    {"block": "snowyspirit:glow_lights_purple", "color": "#B24CFF"},
+    {"block": "snowyspirit:glow_lights_magenta", "color": "#FF1AFF"},
+    {"block": "snowyspirit:glow_lights_pink", "color": "#FF66FF"}
+  ]
+}

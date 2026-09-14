@@ -1,0 +1,11 @@
+{
+	"match": {
+		"items": "starcatcher:starcaught_lava_bucket"
+	},
+	"luminance": {
+		"type": "block",
+		"block": "minecraft:lava"
+	},
+	"water_sensitive": true,
+  "silence_error": true
+}

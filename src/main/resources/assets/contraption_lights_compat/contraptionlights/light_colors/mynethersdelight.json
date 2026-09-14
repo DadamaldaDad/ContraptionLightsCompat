@@ -1,0 +1,22 @@
+{
+  "required_mods": ["mynethersdelight"],
+  "values": [
+    {"block": "mynethersdelight:powdery_torch", "color": "#FF7024"},
+    {"block": "mynethersdelight:wall_powdery_torch", "color": "#FF7024"},
+    {"block": "mynethersdelight:powdery_cannon", "color": "#FF7024"},
+    {"block": "mynethersdelight:powdery_cane", "color": "#FF7024"},
+    {"block": "mynethersdelight:bullet_pepper", "color": "#FF7024"},
+    {"block": "mynethersdelight:potted_bullet_pepper", "color": "#FF7024"},
+    {"block": "mynethersdelight:magma_cake_block", "color": "#FF7024"},
+    {"block": "mynethersdelight:ghasta_with_cream_block", "color": "#FF7024"},
+    {"block": "mynethersdelight:bullet_pepper_crate", "color": "#FF7024"},
+    {"block": "mynethersdelight:blazier_block", "color": "#FF7024"},
+    {"block": "mynethersdelight:nether_stove", "state": {"soul": false}, "color": "#FF7024"},
+    {"block": "mynethersdelight:nether_stove", "state": {"soul": true}, "color": "#3385FF"},
+    {"block": "mynethersdelight:resurgent_soil_farmland", "color": "#3385FF"},
+    {"item": "mynethersdelight:bullet_pepper", "color": "#FF7024", "emission": 10},
+    {"item": "mynethersdelight:pepper_powder", "color": "#FF7024", "emission": 10},
+    {"item": "mynethersdelight:stuffed_pepper", "color": "#FF7024", "emission": 5},
+    {"item": "mynethersdelight:spicy_skewer", "color": "#FF7024", "emission": 5}
+  ]
+}

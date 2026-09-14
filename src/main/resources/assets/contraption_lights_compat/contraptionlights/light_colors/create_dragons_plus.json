@@ -1,0 +1,7 @@
+{
+  "required_mods": ["create_dragons_plus"],
+  "values": [
+    {"block": "create_dragons_plus:dragon_breath", "color": "#BF4CFF"},
+    {"item": "create_dragons_plus:dragon_breath_bucket", "color": "#BF4CFF", "emission": 15}
+  ]
+}

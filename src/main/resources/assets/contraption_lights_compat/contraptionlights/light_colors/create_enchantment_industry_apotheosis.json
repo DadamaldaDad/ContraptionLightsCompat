@@ -2,6 +2,12 @@
   "required_mods": ["create_enchantment_industry", "apotheosis"],
   "values": [
     {"block": "create_enchantment_industry:blaze_composer", "color": "#FF7024"},
-    {"block": "create_enchantment_industry:blaze_composer", "state": {"blaze": "seething"}, "color": "#3385FF"}
+    {"block": "create_enchantment_industry:blaze_composer", "state": {"blaze": "seething"}, "color": "#3385FF"},
+    {"block": "create_enchantment_industry:infused_dragon_breath", "color": "#BF4CFF"},
+    {"block": "create_enchantment_industry:apotheotic_essence", "color": "#FF9340"},
+    {"block": "create_enchantment_industry:crystal_essence", "color": "#A8B0FF"},
+    {"item": "create_enchantment_industry:infused_dragon_breath_bucket", "color": "#BF4CFF", "emission": 15},
+    {"item": "create_enchantment_industry:apotheotic_essence_bucket", "color": "#FF9340", "emission": 15},
+    {"item": "create_enchantment_industry:crystal_essence_bucket", "color": "#A8B0FF", "emission": 15}
   ]
 }

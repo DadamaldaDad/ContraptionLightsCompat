@@ -1,0 +1,7 @@
+{
+	"match": {
+		"items": "create_dragons_plus:dragon_breath_bucket"
+	},
+	"luminance": 15,
+  "silence_error": true
+}

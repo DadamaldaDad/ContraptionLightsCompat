@@ -1,0 +1,6 @@
+{
+  "required_mods": ["ribbits"],
+  "values": [
+    {"block": "ribbits:swamp_lantern", "color": "#FF6317"}
+  ]
+}

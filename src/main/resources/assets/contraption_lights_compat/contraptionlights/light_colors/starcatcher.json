@@ -1,0 +1,7 @@
+{
+  "required_mods": ["starcatcher"],
+  "values": [
+    {"item": "starcatcher:glowing_bobber", "color": "#FF6317", "emission": 14},
+    {"item": "starcatcher:starcaught_lava_bucket", "color": "#FF661F", "emission": 15}
+  ]
+}

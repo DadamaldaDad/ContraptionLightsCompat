@@ -2,5 +2,6 @@
 	"match": {
 		"type": "amendments:medium_dragon_fireball"
 	},
-	"luminance": 13
+	"luminance": 13,
+  "silence_error": true
 }

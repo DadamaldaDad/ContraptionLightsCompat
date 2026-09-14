@@ -2,5 +2,6 @@
 	"match": {
 		"items": "aeronautics:adjustable_burner"
 	},
-	"luminance": 0
+	"luminance": 0,
+  "silence_error": true
 }
