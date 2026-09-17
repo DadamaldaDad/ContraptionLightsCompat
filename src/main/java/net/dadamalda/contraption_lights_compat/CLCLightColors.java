@@ -6,6 +6,9 @@ import com.kipti.bnb.content.trinkets.light.headlamp.HeadlampBlockEntity;
 import com.kipti.bnb.content.trinkets.light.headlamp.rendering.HeadlampConstants;
 import com.kipti.bnb.registry.content.BnbBlockEntities;
 import com.kipti.bnb.registry.content.blocks.BnbTrinketBlocks;
+import com.mouba.create_lac.block.*;
+import com.mouba.create_lac.register.ModBlockEntityTypes;
+import com.mouba.create_lac.register.ModBlocks;
 import com.simibubi.create.AllBlockEntityTypes;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.fluids.tank.FluidTankBlockEntity;
@@ -63,6 +66,7 @@ public class CLCLightColors {
         if(ModList.get().isLoaded("createpropulsion")) registerPropulsionSimulated();
         if(ModList.get().isLoaded("create_connected")) registerCreateConnected();
         if(ModList.get().isLoaded("chalk")) registerChalk();
+        if(ModList.get().isLoaded("create_lac")) registerCreateLightsControls();
     }
 
     private static void registerPowerGrid() {
@@ -189,6 +193,54 @@ public class CLCLightColors {
             });
             return ColorHelper.mix(colors);
         });
+    }
+
+    private static void registerCreateLightsControls() {
+        ContraptionLightsApi.registerLightColor(ModBlocks.QUAD_LEVER_PANEL.get(), (level, pos, state) -> {
+            Optional<QuadLeverPanelBlockEntity> be = level.getBlockEntity(pos, ModBlockEntityTypes.QUAD_LEVER_PANEL.get());
+            if(be.isEmpty()) return LightColorProvider.PASS;
+            List<Boolean> activeLevers = List.of(
+                    state.getValue(QuadLeverPanelBlock.LEVER_1),
+                    state.getValue(QuadLeverPanelBlock.LEVER_2),
+                    state.getValue(QuadLeverPanelBlock.LEVER_3),
+                    state.getValue(QuadLeverPanelBlock.LEVER_4)
+            );
+            List<Integer> colors = new ArrayList<>();
+            for (int i = 0; i < activeLevers.size(); i++) {
+                if(!activeLevers.get(i)) continue;
+                colors.add(ColorHelper.brighten(be.get().getBulbColor(i)));
+            }
+            return ColorHelper.mix(colors);
+        });
+        ContraptionLightsApi.registerLightColor(ModBlocks.LIT_BOARD.get(), (level, pos, state) -> {
+            Optional<LitBoardBlockEntity> be = level.getBlockEntity(pos, ModBlockEntityTypes.LIT_BOARD.get());
+            return be.map(LitBoardBlockEntity::getBulbColor).orElse(LightColorProvider.PASS);
+        });
+        for(String casing : List.of("andesite", "industrial", "copper", "brass")) {
+            ContraptionLightsApi.registerLightColor(ModBlocks.LARGE_TINT_LIGHTS.get(casing).get(), CLCLightColors::provideLargeTintLightColor);
+            ContraptionLightsApi.registerLightColor(ModBlocks.SMALL_TINT_LIGHTS.get(casing).get(), CLCLightColors::provideSmallTintLightColor);
+        }
+        ContraptionLightsApi.registerLightColor(ModBlocks.MODULE_ANCHOR.get(), (level, pos, state) -> {
+            Optional<ModuleAnchorBlockEntity> be = level.getBlockEntity(pos, ModBlockEntityTypes.MODULE_ANCHOR.get());
+            if(be.isEmpty()) return LightColorProvider.PASS;
+            List<Integer> colors = new ArrayList<>();
+            for (int i = 0; i < 6; i++) {
+                if(be.get().isSlotEmpty(i)) continue;
+                if(!be.get().getSlotType(i).isSmallTintLight()) continue;
+                if(!be.get().isSlotPowered(i)) continue;
+                colors.add(ColorHelper.brighten(be.get().getSlotColor(i)));
+            }
+            return ColorHelper.mix(colors);
+        });
+    }
+
+    private static int provideLargeTintLightColor(BlockGetter level, BlockPos pos, BlockState state) {
+        Optional<LargeTintLightBlockEntity> be = level.getBlockEntity(pos, ModBlockEntityTypes.LARGE_TINT_LIGHT.get());
+        return be.map(LargeTintLightBlockEntity::getBulbColor).orElse(LightColorProvider.PASS);
+    }
+    private static int provideSmallTintLightColor(BlockGetter level, BlockPos pos, BlockState state) {
+        Optional<SmallTintLightBlockEntity> be = level.getBlockEntity(pos, ModBlockEntityTypes.SMALL_TINT_LIGHT.get());
+        return be.map(SmallTintLightBlockEntity::getBulbColor).orElse(LightColorProvider.PASS);
     }
 
     private static LightColorProvider createFluidTankProvider(BlockEntityType<? extends FluidTankBlockEntity> beType) {

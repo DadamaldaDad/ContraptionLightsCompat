@@ -55,6 +55,10 @@ requiredMods = ["bits_n_bobs"]
 config = "${mod_id}.create_connected.mixins.json"
 requiredMods = ["create_connected"]
 
+[[mixins]]
+config = "${mod_id}.create_lac.mixins.json"
+requiredMods = ["create_lac"]
+
 # The [[accessTransformers]] block allows you to declare where your AT file is.
 # If this block is omitted, a fallback attempt will be made to load an AT from META-INF/accesstransformer.cfg
 #[[accessTransformers]]

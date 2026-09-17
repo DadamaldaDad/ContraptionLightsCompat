@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.dadamalda.contraption_lights_compat.mixin.create_lac",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+  ],
+  "client": [
+    "QuadLeverPanelBlockEntityMixin",
+    "LitBoardBlockEntityMixin",
+    "LargeTintLightBlockEntityMixin",
+    "SmallTintLightBlockEntityMixin",
+    "ModuleAnchorBlockEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
