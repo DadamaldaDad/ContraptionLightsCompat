@@ -1,6 +1,7 @@
 {
   "required_mods": ["bits_n_bobs"],
   "values": [
-    {"block": "bits_n_bobs:lightbulb", "color": "white"}
+    {"block": "bits_n_bobs:lightbulb", "color": "white"},
+    {"block": "bits_n_bobs:brass_lamp", "color": "white"}
   ]
 }

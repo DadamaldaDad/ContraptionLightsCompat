@@ -6,6 +6,7 @@
     {"block": "natures_spirit:light_gray_paper_lantern", "color": "white"},
     {"block": "natures_spirit:gray_paper_lantern", "color": "white"},
     {"block": "natures_spirit:black_paper_lantern", "color": "white"},
+    {"block": "natures_spirit:brown_paper_lantern", "color": "#FF7024"},
     {"block": "natures_spirit:red_paper_lantern", "color": "#FF1A1A"},
     {"block": "natures_spirit:orange_paper_lantern", "color": "#FF801A"},
     {"block": "natures_spirit:yellow_paper_lantern", "color": "#FFFF1A"},

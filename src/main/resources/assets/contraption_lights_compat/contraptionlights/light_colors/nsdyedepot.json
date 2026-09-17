@@ -1,0 +1,21 @@
+{
+  "required_mods": ["nsdyedepot"],
+  "values": [
+    {"block": "nsdyedepot:maroon_paper_lantern", "color": "#FF482B"},
+    {"block": "nsdyedepot:rose_paper_lantern", "color": "#FF75B3"},
+    {"block": "nsdyedepot:coral_paper_lantern", "color": "#FF9A73"},
+    {"block": "nsdyedepot:indigo_paper_lantern", "color": "#AF99FF"},
+    {"block": "nsdyedepot:navy_paper_lantern", "color": "#639CFF"},
+    {"block": "nsdyedepot:slate_paper_lantern", "color": "#A1C5FF"},
+    {"block": "nsdyedepot:olive_paper_lantern", "color": "#FFFC33"},
+    {"block": "nsdyedepot:amber_paper_lantern", "color": "#FFD000"},
+    {"block": "nsdyedepot:beige_paper_lantern", "color": "#FFE8BC"},
+    {"block": "nsdyedepot:teal_paper_lantern", "color": "#6EFFCC"},
+    {"block": "nsdyedepot:mint_paper_lantern", "color": "#57FFA0"},
+    {"block": "nsdyedepot:aqua_paper_lantern", "color": "#54FCFF"},
+    {"block": "nsdyedepot:verdant_paper_lantern", "color": "#6CFF5E"},
+    {"block": "nsdyedepot:forest_paper_lantern", "color": "#7BFF3D"},
+    {"block": "nsdyedepot:ginger_paper_lantern", "color": "#FF8A24"},
+    {"block": "nsdyedepot:tan_paper_lantern", "color": "#FFBF70"}
+  ]
+}
