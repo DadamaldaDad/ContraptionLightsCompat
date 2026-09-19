@@ -1,0 +1,26 @@
+{
+  "required_mods": ["kaleidoscope_dim_wine"],
+  "values": [
+    {"block": "kaleidoscope_dim_wine:string_lights_entity_shulker", "color": "#FFB2FF"},
+    {"block": "kaleidoscope_dim_wine:string_lights_entity_shulker_white", "color": "white"},
+    {"block": "kaleidoscope_dim_wine:string_lights_entity_shulker_light_gray", "color": "white"},
+    {"block": "kaleidoscope_dim_wine:string_lights_entity_shulker_gray", "color": "white"},
+    {"block": "kaleidoscope_dim_wine:string_lights_entity_shulker_black", "color": "white"},
+    {"block": "kaleidoscope_dim_wine:string_lights_entity_shulker_brown", "color": "#FF7024"},
+    {"block": "kaleidoscope_dim_wine:string_lights_entity_shulker_red", "color": "#FF1A1A"},
+    {"block": "kaleidoscope_dim_wine:string_lights_entity_shulker_orange", "color": "#FF801A"},
+    {"block": "kaleidoscope_dim_wine:string_lights_entity_shulker_yellow", "color": "#FFFF1A"},
+    {"block": "kaleidoscope_dim_wine:string_lights_entity_shulker_lime", "color": "#1AFF1A"},
+    {"block": "kaleidoscope_dim_wine:string_lights_entity_shulker_green", "color": "#4CFF4C"},
+    {"block": "kaleidoscope_dim_wine:string_lights_entity_shulker_cyan", "color": "#4CCCFF"},
+    {"block": "kaleidoscope_dim_wine:string_lights_entity_shulker_light_blue", "color": "#80A6FF"},
+    {"block": "kaleidoscope_dim_wine:string_lights_entity_shulker_blue", "color": "#1A26FF"},
+    {"block": "kaleidoscope_dim_wine:string_lights_entity_shulker_purple", "color": "#B24CFF"},
+    {"block": "kaleidoscope_dim_wine:string_lights_entity_shulker_magenta", "color": "#FF1AFF"},
+    {"block": "kaleidoscope_dim_wine:string_lights_entity_shulker_pink", "color": "#FF66FF"},
+    {"block": "kaleidoscope_dim_wine:string_lights_entity_chicken", "color": "#FFFF1A"},
+    {"block": "kaleidoscope_dim_wine:string_lights_entity_bee", "color": "#FFFF1A"},
+    {"block": "kaleidoscope_dim_wine:string_lights_block_command", "color": "#FFB380"},
+    {"block": "kaleidoscope_dim_wine:string_lights_block_bedrock", "color": "white"}
+  ]
+}

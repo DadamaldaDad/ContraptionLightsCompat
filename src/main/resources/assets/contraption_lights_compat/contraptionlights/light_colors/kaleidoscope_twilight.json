@@ -1,0 +1,7 @@
+{
+  "required_mods": ["kaleidoscope_twilight"],
+  "values": [
+    {"block": "kaleidoscope_twilight:twilight_stove", "color": "#FF7024"},
+    {"item": "kaleidoscope_twilight:torchberry_bucket", "color": "#FFF2D1", "emission": 6}
+  ]
+}

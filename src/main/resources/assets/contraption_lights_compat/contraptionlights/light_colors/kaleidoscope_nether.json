@@ -1,0 +1,6 @@
+{
+  "required_mods": ["kaleidoscope_nether"],
+  "values": [
+    {"block": "kaleidoscope_nether:nether_stove", "color": "#FF7024"}
+  ]
+}

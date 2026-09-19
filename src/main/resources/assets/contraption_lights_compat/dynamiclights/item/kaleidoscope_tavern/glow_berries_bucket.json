@@ -1,0 +1,7 @@
+{
+	"match": {
+		"items": "kaleidoscope_tavern:glow_berries_bucket"
+	},
+	"luminance": 14,
+  "silence_error": true
+}

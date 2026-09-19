@@ -1,0 +1,6 @@
+{
+  "required_mods": ["kaleidoscope_dim_wine", "twilightforest"],
+  "values": [
+    {"item": "kaleidoscope_dim_wine:torchberries_juice_bucket", "color": "#FFF2D1", "emission": 6}
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "required_mods": ["kaleidoscope_end"],
+  "values": [
+    {"block": "kaleidoscope_end:end_stove", "color": "#FF7024"}
+  ]
+}

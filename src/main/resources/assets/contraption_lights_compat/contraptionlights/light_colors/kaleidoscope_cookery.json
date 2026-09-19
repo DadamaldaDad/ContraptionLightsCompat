@@ -1,0 +1,8 @@
+{
+  "required_mods": ["kaleidoscope_cookery"],
+  "values": [
+    {"block": "kaleidoscope_cookery:stove", "color": "#FF7024"},
+    {"block": "kaleidoscope_cookery:shawarma_spit", "color": "#FF7024"},
+    {"block": "kaleidoscope_cookery:red_lantern", "color": "#FF1A1A"}
+  ]
+}

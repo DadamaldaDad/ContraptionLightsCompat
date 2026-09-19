@@ -1,0 +1,6 @@
+{
+  "required_mods": ["kaleidoscope_chinesefood"],
+  "values": [
+    {"block": "kaleidoscope_chinesefood:kongming_lantern", "color": "#FFAB2A"}
+  ]
+}

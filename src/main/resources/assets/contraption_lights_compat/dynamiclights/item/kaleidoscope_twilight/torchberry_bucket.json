@@ -1,0 +1,7 @@
+{
+	"match": {
+		"items": "kaleidoscope_twilight:torchberry_bucket"
+	},
+	"luminance": 6,
+  "silence_error": true
+}

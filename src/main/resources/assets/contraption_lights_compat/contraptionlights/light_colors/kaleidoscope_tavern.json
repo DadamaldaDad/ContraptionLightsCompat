@@ -1,0 +1,29 @@
+{
+  "required_mods": ["kaleidoscope_tavern"],
+  "values": [
+    {"block": "kaleidoscope_tavern:molotov", "color": "#FF661F"},
+    {"block": "kaleidoscope_tavern:glassware_holder", "color": "#FF873D"},
+    {"block": "kaleidoscope_tavern:circular_rack", "color": "white"},
+    {"block": "kaleidoscope_tavern:bell_pendant_lamp", "color": "#FF914C"},
+    {"block": "kaleidoscope_tavern:yellow_pendant_lamp", "color": "#FF914C"},
+    {"block": "kaleidoscope_tavern:blue_pendant_lamp", "color": "#3385FF"},
+    {"block": "kaleidoscope_tavern:string_lights_colorless", "color": "white"},
+    {"block": "kaleidoscope_tavern:string_lights_white", "color": "white"},
+    {"block": "kaleidoscope_tavern:string_lights_light_gray", "color": "white"},
+    {"block": "kaleidoscope_tavern:string_lights_gray", "color": "white"},
+    {"block": "kaleidoscope_tavern:string_lights_black", "color": "white"},
+    {"block": "kaleidoscope_tavern:string_lights_brown", "color": "#FF7024"},
+    {"block": "kaleidoscope_tavern:string_lights_red", "color": "#FF1A1A"},
+    {"block": "kaleidoscope_tavern:string_lights_orange", "color": "#FF801A"},
+    {"block": "kaleidoscope_tavern:string_lights_yellow", "color": "#FFFF1A"},
+    {"block": "kaleidoscope_tavern:string_lights_lime", "color": "#1AFF1A"},
+    {"block": "kaleidoscope_tavern:string_lights_green", "color": "#4CFF4C"},
+    {"block": "kaleidoscope_tavern:string_lights_cyan", "color": "#4CCCFF"},
+    {"block": "kaleidoscope_tavern:string_lights_light_blue", "color": "#80A6FF"},
+    {"block": "kaleidoscope_tavern:string_lights_blue", "color": "#1A26FF"},
+    {"block": "kaleidoscope_tavern:string_lights_purple", "color": "#B24CFF"},
+    {"block": "kaleidoscope_tavern:string_lights_magenta", "color": "#FF1AFF"},
+    {"block": "kaleidoscope_tavern:string_lights_pink", "color": "#FF66FF"},
+    {"item": "kaleidoscope_tavern:glow_berries_bucket", "color": "#FF6317", "emission": 14}
+  ]
+}
