@@ -48,6 +48,10 @@ config = "${mod_id}.simulated.mixins.json"
 requiredMods = ["simulated"]
 
 [[mixins]]
+config = "${mod_id}.createpropulsion.mixins.json"
+requiredMods = ["createpropulsion"]
+
+[[mixins]]
 config = "${mod_id}.bits_n_bobs.mixins.json"
 requiredMods = ["bits_n_bobs"]
 

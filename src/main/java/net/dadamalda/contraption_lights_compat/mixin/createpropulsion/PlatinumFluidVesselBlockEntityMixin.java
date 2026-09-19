@@ -1,7 +1,8 @@
-package net.dadamalda.contraption_lights_compat.mixin.create;
+package net.dadamalda.contraption_lights_compat.mixin.createpropulsion;
 
 import com.simibubi.create.content.fluids.tank.FluidTankBlockEntity;
 import com.simibubi.create.foundation.blockEntity.SmartBlockEntity;
+import dev.propulsionteam.propulsionsimulated.content.platinum.PlatinumFluidVesselBlockEntity;
 import net.dadamalda.contraption_lights_compat.CLCLightColors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -13,9 +14,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(FluidTankBlockEntity.class)
-public abstract class FluidTankBlockEntityMixin extends SmartBlockEntity {
-    public FluidTankBlockEntityMixin(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+@Mixin(PlatinumFluidVesselBlockEntity.class)
+public abstract class PlatinumFluidVesselBlockEntityMixin extends FluidTankBlockEntity {
+    public PlatinumFluidVesselBlockEntityMixin(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
     }
 

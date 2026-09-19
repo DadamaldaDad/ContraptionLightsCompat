@@ -6,7 +6,8 @@
   "mixins": [
   ],
   "client": [
-    "FluidTankBlockEntityMixinConnected"
+    "FluidVesselBlockEntityMixin",
+    "FluidVesselBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1

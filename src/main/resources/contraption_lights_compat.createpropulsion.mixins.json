@@ -1,13 +1,14 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.dadamalda.contraption_lights_compat.mixin.create",
+  "package": "net.dadamalda.contraption_lights_compat.mixin.createpropulsion",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
   ],
   "client": [
-    "FluidTankBlockEntityMixin",
-    "FluidTankBlockMixin"
+    "PlatinumFluidTankBlockEntityMixin",
+    "PlatinumFluidVesselBlockEntityMixin",
+    "PlatinumFluidVesselBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1
