@@ -12,7 +12,7 @@ public class ColorHelper {
         int red = 0;
         int green = 0;
         int blue = 0;
-        for (Integer color : colors) {
+        for (Integer color : filteredColors) {
             red += FastColor.ARGB32.red(color);
             green += FastColor.ARGB32.green(color);
             blue += FastColor.ARGB32.blue(color);
