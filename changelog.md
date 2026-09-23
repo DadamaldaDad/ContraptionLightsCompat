@@ -1,12 +1,5 @@
-- Improved support for Bits 'n' Bobs (brass lamp)
-- Improved support for Nature's Spirit (brown paper lantern, dye depot compat)
-- Added support for Create Lights & Controls (many things)
-- Added support for Twilight Forest (many whimsical things)
-- Added support for Rubinated nether (many rubinated things)
-- Added support for Kaleidoscope Cookery (stove, shawarma spit, red lantern)
-- Added support for Kaleidoscope Tavern (many things)
-- Added support for Kaleidoscope Nether (nether stove)
-- Added support for Kaleidoscope End (end stove)
-- Added support for Kaleidoscope Twilight (twilight stove, torchberry juice)
-- Added support for Kaleidoscope Chinese Food (sky lanterns)
-- Added support for Kaleidoscope Dim Wine (string lights, torchberry juice)
+- Fixed warning with Rubinated Nether
+- Fixed warning with Kaleidoscope Twilight when Kaleidoscope Tavern is not installed
+- Improved support for Twilight Forest (skull candles, candelabras)
+- Added support for Immersive Engineering (many things)
+- Added support for OpenComputers Rebooted (3D print, projector)
