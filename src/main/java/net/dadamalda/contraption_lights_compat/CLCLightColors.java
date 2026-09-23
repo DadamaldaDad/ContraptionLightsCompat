@@ -40,6 +40,11 @@ import org.patryk3211.powergrid.collections.ModdedBlockEntities;
 import org.patryk3211.powergrid.collections.ModdedBlocks;
 import org.patryk3211.powergrid.electricity.light.bulb.LightBulbState;
 import org.patryk3211.powergrid.electricity.light.fixture.LightFixtureBlockEntity;
+import twilightforest.block.AbstractSkullCandleBlock;
+import twilightforest.block.entity.CandelabraBlockEntity;
+import twilightforest.block.entity.SkullCandleBlockEntity;
+import twilightforest.init.TFBlockEntities;
+import twilightforest.init.TFBlocks;
 import xyz.atmerek.contraptionlights.api.ContraptionLightsApi;
 import xyz.atmerek.contraptionlights.api.LightColorProvider;
 import xyz.atmerek.contraptionlights.light.color.ColorLightFeature;
@@ -67,6 +72,7 @@ public class CLCLightColors {
         if(ModList.get().isLoaded("create_connected")) registerCreateConnected();
         if(ModList.get().isLoaded("chalk")) registerChalk();
         if(ModList.get().isLoaded("create_lac")) registerCreateLightsControls();
+        if(ModList.get().isLoaded("twilightforest")) registerTwilightForest();
     }
 
     private static void registerPowerGrid() {
@@ -241,6 +247,41 @@ public class CLCLightColors {
     private static int provideSmallTintLightColor(BlockGetter level, BlockPos pos, BlockState state) {
         Optional<SmallTintLightBlockEntity> be = level.getBlockEntity(pos, ModBlockEntityTypes.SMALL_TINT_LIGHT.get());
         return be.map(SmallTintLightBlockEntity::getBulbColor).orElse(LightColorProvider.PASS);
+    }
+
+    private static void registerTwilightForest() {
+        ContraptionLightsApi.registerLightColor(TFBlocks.CANDELABRA.get(), (level, pos, state) -> {
+            if(!ColorLightFeature.colorfulCandles()) return LightColorProvider.PASS;
+            Optional<CandelabraBlockEntity> be = level.getBlockEntity(pos, TFBlockEntities.CANDELABRA.get());
+            if(be.isEmpty()) return LightColorProvider.PASS;
+            List<Integer> colors = new ArrayList<>();
+            for(Block candle : be.get().getCandles().ordered()) {
+                ResourceLocation candleLocation = BuiltInRegistries.BLOCK.getKey(candle);
+                colors.add(ColorHelper.brighten(CANDLE_COLORS.getOrDefault(candleLocation, LightColorProvider.PASS)));
+            }
+            return ColorHelper.mix(colors);
+        });
+        ContraptionLightsApi.registerLightColor(TFBlocks.SKELETON_SKULL_CANDLE.get(), CLCLightColors::provideTFSkullCandle);
+        ContraptionLightsApi.registerLightColor(TFBlocks.WITHER_SKELE_SKULL_CANDLE.get(), CLCLightColors::provideTFSkullCandle);
+        ContraptionLightsApi.registerLightColor(TFBlocks.ZOMBIE_SKULL_CANDLE.get(), CLCLightColors::provideTFSkullCandle);
+        ContraptionLightsApi.registerLightColor(TFBlocks.CREEPER_SKULL_CANDLE.get(), CLCLightColors::provideTFSkullCandle);
+        ContraptionLightsApi.registerLightColor(TFBlocks.PLAYER_SKULL_CANDLE.get(), CLCLightColors::provideTFSkullCandle);
+        ContraptionLightsApi.registerLightColor(TFBlocks.PIGLIN_SKULL_CANDLE.get(), CLCLightColors::provideTFSkullCandle);
+        ContraptionLightsApi.registerLightColor(TFBlocks.SKELETON_WALL_SKULL_CANDLE.get(), CLCLightColors::provideTFSkullCandle);
+        ContraptionLightsApi.registerLightColor(TFBlocks.WITHER_SKELE_WALL_SKULL_CANDLE.get(), CLCLightColors::provideTFSkullCandle);
+        ContraptionLightsApi.registerLightColor(TFBlocks.ZOMBIE_WALL_SKULL_CANDLE.get(), CLCLightColors::provideTFSkullCandle);
+        ContraptionLightsApi.registerLightColor(TFBlocks.CREEPER_WALL_SKULL_CANDLE.get(), CLCLightColors::provideTFSkullCandle);
+        ContraptionLightsApi.registerLightColor(TFBlocks.PLAYER_WALL_SKULL_CANDLE.get(), CLCLightColors::provideTFSkullCandle);
+        ContraptionLightsApi.registerLightColor(TFBlocks.PIGLIN_WALL_SKULL_CANDLE.get(), CLCLightColors::provideTFSkullCandle);
+    }
+
+    private static int provideTFSkullCandle(BlockGetter level, BlockPos pos, BlockState state) {
+        if(!ColorLightFeature.colorfulCandles()) return LightColorProvider.PASS;
+        Optional<SkullCandleBlockEntity> be = level.getBlockEntity(pos, TFBlockEntities.SKULL_CANDLE.get());
+        if(be.isEmpty()) return LightColorProvider.PASS;
+        Block candle = AbstractSkullCandleBlock.candleColorToCandle(AbstractSkullCandleBlock.CandleColors.colorFromInt(be.get().getCandleColor()));
+        ResourceLocation candleLocation = BuiltInRegistries.BLOCK.getKey(candle);
+        return CANDLE_COLORS.getOrDefault(candleLocation, LightColorProvider.PASS);
     }
 
     private static LightColorProvider createFluidTankProvider(BlockEntityType<? extends FluidTankBlockEntity> beType) {

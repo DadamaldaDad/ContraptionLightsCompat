@@ -42,6 +42,16 @@ repositories {
             includeGroup "maven.modrinth"
         }
     }
+    exclusiveContent {
+        forRepository {
+            maven {
+                url "https://cursemaven.com"
+            }
+        }
+        filter {
+            includeGroup "curse.maven"
+        }
+    }
 }
 
 base {
@@ -162,6 +172,8 @@ dependencies {
     implementation("maven.modrinth:create-connected:Xe7EqzfQ")
 
     implementation("maven.modrinth:createlights-controls:2.2.1")
+
+    implementation("curse.maven:the-twilight-forest-227639:7797302")
     // Example mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
