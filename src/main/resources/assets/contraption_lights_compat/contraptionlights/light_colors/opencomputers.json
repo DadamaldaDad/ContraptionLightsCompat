@@ -1,0 +1,7 @@
+{
+  "required_mods": ["opencomputers"],
+  "values": [
+    {"block": "opencomputers:print", "color": "white"},
+    {"block": "opencomputers:projector", "color": "white"}
+  ]
+}
