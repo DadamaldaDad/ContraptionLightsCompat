@@ -173,6 +173,8 @@ dependencies {
 
     implementation("maven.modrinth:createlights-controls:2.2.1")
 
+    implementation("maven.modrinth:immersiveengineering:12.4.2-194")
+
     implementation("curse.maven:the-twilight-forest-227639:7797302")
     // Example mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime

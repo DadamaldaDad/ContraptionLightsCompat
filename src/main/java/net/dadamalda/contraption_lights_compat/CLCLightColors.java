@@ -1,11 +1,18 @@
 package net.dadamalda.contraption_lights_compat;
 
+import blusunrize.immersiveengineering.api.shader.ShaderCase;
+import blusunrize.immersiveengineering.api.shader.ShaderLayer;
+import blusunrize.immersiveengineering.api.utils.Color4;
+import blusunrize.immersiveengineering.common.blocks.cloth.BalloonBlockEntity;
+import blusunrize.immersiveengineering.common.register.IEBlockEntities;
+import blusunrize.immersiveengineering.common.register.IEBlocks;
 import com.hlysine.create_connected.registries.CCBlockEntityTypes;
 import com.hlysine.create_connected.registries.CCBlocks;
 import com.kipti.bnb.content.trinkets.light.headlamp.HeadlampBlockEntity;
 import com.kipti.bnb.content.trinkets.light.headlamp.rendering.HeadlampConstants;
 import com.kipti.bnb.registry.content.BnbBlockEntities;
 import com.kipti.bnb.registry.content.blocks.BnbTrinketBlocks;
+import com.mojang.logging.LogUtils;
 import com.mouba.create_lac.block.*;
 import com.mouba.create_lac.register.ModBlockEntityTypes;
 import com.mouba.create_lac.register.ModBlocks;
@@ -28,6 +35,7 @@ import net.mehvahdjukaar.supplementaries.reg.ModRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.FastColor;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -73,6 +81,7 @@ public class CLCLightColors {
         if(ModList.get().isLoaded("chalk")) registerChalk();
         if(ModList.get().isLoaded("create_lac")) registerCreateLightsControls();
         if(ModList.get().isLoaded("twilightforest")) registerTwilightForest();
+        if(ModList.get().isLoaded("immersiveengineering")) registerImmersiveEngineering();
     }
 
     private static void registerPowerGrid() {
@@ -282,6 +291,35 @@ public class CLCLightColors {
         Block candle = AbstractSkullCandleBlock.candleColorToCandle(AbstractSkullCandleBlock.CandleColors.colorFromInt(be.get().getCandleColor()));
         ResourceLocation candleLocation = BuiltInRegistries.BLOCK.getKey(candle);
         return CANDLE_COLORS.getOrDefault(candleLocation, LightColorProvider.PASS);
+    }
+
+    private static void registerImmersiveEngineering() {
+        ContraptionLightsApi.registerLightColor(IEBlocks.Cloth.BALLOON.get(), (level, pos, state) -> {
+            Optional<BalloonBlockEntity> be = level.getBlockEntity(pos, IEBlockEntities.BALLOON.get());
+            if(be.isEmpty()) return LightColorProvider.PASS;
+            ShaderCase shaderCase = be.get().getShader().getCase();
+            List<Integer> colors = new ArrayList<>();
+            if(shaderCase == null) {
+                DyeColor color0 = be.get().colour0;
+                if(color0 != null) {
+                    colors.add(ColorHelper.brighten(color0.getFireworkColor()));
+                } else {
+                    colors.add(WHITE);
+                }
+                DyeColor color1 = be.get().colour1;
+                if(color1 != null) {
+                    colors.add(ColorHelper.brighten(color1.getFireworkColor()));
+                } else {
+                    colors.add(WHITE);
+                }
+            } else {
+                for(ShaderLayer layer : shaderCase.getLayers()) {
+                    //Color4 color = layer.getColor();
+                    colors.add(ColorHelper.brighten(layer.getColor().toInt()));
+                }
+            }
+            return ColorHelper.mix(colors);
+        });
     }
 
     private static LightColorProvider createFluidTankProvider(BlockEntityType<? extends FluidTankBlockEntity> beType) {
