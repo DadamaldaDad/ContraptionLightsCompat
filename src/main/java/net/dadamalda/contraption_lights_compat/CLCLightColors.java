@@ -295,6 +295,7 @@ public class CLCLightColors {
     }
 
     private static void addCandleColors() {
+        CANDLE_COLORS.put(ResourceLocation.parse("minecraft:brown_candle"), 0xFF7024);
         CANDLE_COLORS.put(ResourceLocation.parse("minecraft:red_candle"), 0xFF1A1A);
         CANDLE_COLORS.put(ResourceLocation.parse("minecraft:orange_candle"), 0xFF801A);
         CANDLE_COLORS.put(ResourceLocation.parse("minecraft:yellow_candle"), 0xFFFF1A);
