@@ -176,6 +176,9 @@ dependencies {
     implementation("maven.modrinth:immersiveengineering:12.4.2-194")
 
     implementation("curse.maven:the-twilight-forest-227639:7797302")
+
+    implementation("maven.modrinth:cb-multipart:3.5.0.155")
+    implementation("maven.modrinth:codechicken-lib:4.6.1.529")
     // Example mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"

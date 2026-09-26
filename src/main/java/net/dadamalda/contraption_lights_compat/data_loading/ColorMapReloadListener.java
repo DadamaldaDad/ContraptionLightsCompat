@@ -19,6 +19,7 @@ public class ColorMapReloadListener extends SimpleJsonResourceReloadListener {
     @Override
     protected void apply(Map<ResourceLocation, JsonElement> resourceLocationJsonElementMap, ResourceManager resourceManager, ProfilerFiller profilerFiller) {
         boolean isMoonlightLoaded = ModList.get().isLoaded("moonlight");
+        boolean isCBMultipartLoaded = ModList.get().isLoaded("cb_multipart");
         for (Map.Entry<ResourceLocation, JsonElement> entry : resourceLocationJsonElementMap.entrySet()) {
             if(!entry.getValue().isJsonObject()) continue;
             JsonObject root = entry.getValue().getAsJsonObject();
@@ -38,8 +39,16 @@ public class ColorMapReloadListener extends SimpleJsonResourceReloadListener {
                     ColorMaps.SOFT_FLUIDS.put(soft_fluid.getKey(), soft_fluid.getValue().getAsString());
                 }
             }
+            if(isCBMultipartLoaded && root.get("multiparts") != null && root.get("multiparts").isJsonObject()) {
+                JsonObject multiparts = root.get("multiparts").getAsJsonObject();
+                for (Map.Entry<String, JsonElement> multipart : multiparts.asMap().entrySet()) {
+                    if(!multipart.getValue().isJsonPrimitive()) continue;
+                    ColorMaps.MULTIPARTS.put(multipart.getKey(), multipart.getValue().getAsString());
+                }
+            }
         }
         ColorMaps.FLUIDS.commit();
         ColorMaps.SOFT_FLUIDS.commit();
+        ColorMaps.MULTIPARTS.commit();
     }
 }

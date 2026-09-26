@@ -1,5 +1,10 @@
 {
   "fluids": {
     "minecraft:lava": "#FF661F"
+  },
+  "multiparts": {
+    "minecraft:torch": "#FF914C",
+    "minecraft:soul_torch": "#3385FF",
+    "minecraft:redstone_torch": "#FF0D08"
   }
 }
