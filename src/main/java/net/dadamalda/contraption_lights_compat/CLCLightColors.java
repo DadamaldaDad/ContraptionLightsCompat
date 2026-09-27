@@ -5,6 +5,7 @@ import blusunrize.immersiveengineering.api.shader.ShaderLayer;
 import blusunrize.immersiveengineering.common.blocks.cloth.BalloonBlockEntity;
 import blusunrize.immersiveengineering.common.register.IEBlockEntities;
 import blusunrize.immersiveengineering.common.register.IEBlocks;
+import codechicken.microblock.part.MicroblockPart;
 import codechicken.multipart.api.part.MultiPart;
 import codechicken.multipart.block.BlockMultipart;
 import codechicken.multipart.block.TileMultipart;
@@ -332,11 +333,14 @@ public class CLCLightColors {
             for(MultiPart part : tile.getPartList()) {
                 int lightLevel = part.getLightEmission();
                 if(lightLevel <= 0) continue;
-                ResourceLocation partLocation = part.getType().getRegistryName();
-                int partColor = ColorHelper.brighten(ColorMaps.MULTIPARTS.getOrPass(partLocation));
-                for(int i = 0; i < lightLevel; i++) {
-                    colors.add(partColor);
+                ResourceLocation partLocation;
+                if(part instanceof MicroblockPart part2) {
+                    partLocation = part2.material.getRegistryName();
+                } else {
+                    partLocation = part.getType().getRegistryName();
                 }
+                int partColor = ColorHelper.brighten(ColorMaps.MULTIPARTS.getOrPass(partLocation));
+                for(int i = 0; i < lightLevel; i++) colors.add(partColor);
             }
             return ColorHelper.mix(colors);
         });

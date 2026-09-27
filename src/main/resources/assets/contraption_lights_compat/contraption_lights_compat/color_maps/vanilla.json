@@ -5,6 +5,25 @@
   "multiparts": {
     "minecraft:torch": "#FF914C",
     "minecraft:soul_torch": "#3385FF",
-    "minecraft:redstone_torch": "#FF0D08"
+    "minecraft:redstone_torch": "#FF0D08",
+    "minecraft:glowstone": "#FF873D",
+    "minecraft:redstone_lamp//lit.true": "#FF873D",
+    "minecraft:copper_bulb//lit.true/powered.false": "#FF873D",
+    "minecraft:exposed_copper_bulb//lit.true/powered.false": "#FF873D",
+    "minecraft:weathered_copper_bulb//lit.true/powered.false": "#FF873D",
+    "minecraft:oxidized_copper_bulb//lit.true/powered.false": "#FF873D",
+    "minecraft:waxed_copper_bulb//lit.true/powered.false": "#FF873D",
+    "minecraft:waxed_exposed_copper_bulb//lit.true/powered.false": "#FF873D",
+    "minecraft:waxed_weathered_copper_bulb//lit.true/powered.false": "#FF873D",
+    "minecraft:waxed_oxidized_copper_bulb//lit.true/powered.false": "#FF873D",
+    "minecraft:jack_o_lantern//facing.north": "#FF7024",
+    "minecraft:sea_lantern": "#ABD4FF",
+    "minecraft:shroomlight": "#FF4C12",
+    "minecraft:magma_block": "#FF591A",
+    "minecraft:crying_obsidian": "#D12EFF",
+    "minecraft:sculk_catalyst//bloom.false": "#40BFFF",
+    "minecraft:ochre_froglight//axis.y": "#FFE06E",
+    "minecraft:verdant_froglight//axis.y": "#BDFFB2",
+    "minecraft:pearlescent_froglight//axis.y": "#FFB2FA"
   }
 }
