@@ -329,7 +329,7 @@ public class CLCLightColors {
         ContraptionLightsApi.registerLightColor(CBMultipartModContent.MULTIPART_BLOCK.get(), (level, pos, state) -> {
             TileMultipart tile = BlockMultipart.getTile(level, pos);
             if(tile == null) return LightColorProvider.PASS;
-            List<Integer> colors = new ArrayList<>();
+            List<WeightedColor> colors = new ArrayList<>();
             for(MultiPart part : tile.getPartList()) {
                 int lightLevel = part.getLightEmission();
                 if(lightLevel <= 0) continue;
@@ -340,9 +340,9 @@ public class CLCLightColors {
                     partLocation = part.getType().getRegistryName();
                 }
                 int partColor = ColorHelper.brighten(ColorMaps.MULTIPARTS.getOrPass(partLocation));
-                for(int i = 0; i < lightLevel; i++) colors.add(partColor);
+                colors.add(new WeightedColor(partColor, lightLevel));
             }
-            return ColorHelper.mix(colors);
+            return ColorHelper.mixWeighted(colors);
         });
     }
 

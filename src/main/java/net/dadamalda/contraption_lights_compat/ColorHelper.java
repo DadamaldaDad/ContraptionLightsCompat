@@ -20,6 +20,22 @@ public class ColorHelper {
         return FastColor.ARGB32.color(0, Math.min(255, red/colorCount), Math.min(255, green/colorCount), Math.min(255, blue/colorCount));
     }
 
+    public static int mixWeighted(List<WeightedColor> colors) {
+        List<WeightedColor> filteredColors = colors.stream().filter(color -> color != null && color.weight() > 0 && color.color() != -1).toList();
+        if(filteredColors.isEmpty()) return -1;
+        int totalWeight = 0;
+        int red = 0;
+        int green = 0;
+        int blue = 0;
+        for (WeightedColor color : filteredColors) {
+            totalWeight += color.weight();
+            red += FastColor.ARGB32.red(color.color())*color.weight();
+            green += FastColor.ARGB32.green(color.color())*color.weight();
+            blue += FastColor.ARGB32.blue(color.color())*color.weight();
+        }
+        return FastColor.ARGB32.color(0, Math.min(255, red/totalWeight), Math.min(255, green/totalWeight), Math.min(255, blue/totalWeight));
+    }
+
     public static int brighten(int color) {
         if(color == -1) return -1;
         int red = FastColor.ARGB32.red(color);
