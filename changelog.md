@@ -1,5 +1,3 @@
-- Fixed warning with Rubinated Nether
-- Fixed warning with Kaleidoscope Twilight when Kaleidoscope Tavern is not installed
-- Improved support for Twilight Forest (skull candles, candelabras)
-- Added support for Immersive Engineering (many things)
-- Added support for OpenComputers Rebooted (3D print, projector)
+- Improved support for Create (nixie tubes)
+- Added support for Nuclearcraft Neohaul (many things)
+- Added support for Architect's Palette (many things)
