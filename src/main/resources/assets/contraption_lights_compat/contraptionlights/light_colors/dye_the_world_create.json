@@ -1,0 +1,21 @@
+{
+  "required_mods": ["dye_the_world", "create"],
+  "values": [
+    {"block": "create:maroon_nixie_tube", "color": "#FF482B"},
+    {"block": "create:rose_nixie_tube", "color": "#FF75B3"},
+    {"block": "create:coral_nixie_tube", "color": "#FF9A73"},
+    {"block": "create:indigo_nixie_tube", "color": "#AF99FF"},
+    {"block": "create:navy_nixie_tube", "color": "#639CFF"},
+    {"block": "create:slate_nixie_tube", "color": "#A1C5FF"},
+    {"block": "create:olive_nixie_tube", "color": "#FFFC33"},
+    {"block": "create:amber_nixie_tube", "color": "#FFD000"},
+    {"block": "create:beige_nixie_tube", "color": "#FFE8BC"},
+    {"block": "create:teal_nixie_tube", "color": "#6EFFCC"},
+    {"block": "create:mint_nixie_tube", "color": "#57FFA0"},
+    {"block": "create:aqua_nixie_tube", "color": "#54FCFF"},
+    {"block": "create:verdant_nixie_tube", "color": "#6CFF5E"},
+    {"block": "create:forest_nixie_tube", "color": "#7BFF3D"},
+    {"block": "create:ginger_nixie_tube", "color": "#FF8A24"},
+    {"block": "create:tan_nixie_tube", "color": "#FFBF70"}
+  ]
+}

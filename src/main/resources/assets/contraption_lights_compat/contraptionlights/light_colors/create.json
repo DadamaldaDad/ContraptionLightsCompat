@@ -1,0 +1,21 @@
+{
+  "required_mods": ["create"],
+  "values": [
+    {"block": "create:white_nixie_tube", "color": "white"},
+    {"block": "create:light_gray_nixie_tube", "color": "white"},
+    {"block": "create:gray_nixie_tube", "color": "white"},
+    {"block": "create:black_nixie_tube", "color": "white"},
+    {"block": "create:brown_nixie_tube", "color": "#FF7024"},
+    {"block": "create:red_nixie_tube", "color": "#FF1A1A"},
+    {"block": "create:nixie_tube", "color": "#FF801A"},
+    {"block": "create:yellow_nixie_tube", "color": "#FFFF1A"},
+    {"block": "create:lime_nixie_tube", "color": "#1AFF1A"},
+    {"block": "create:green_nixie_tube", "color": "#4CFF4C"},
+    {"block": "create:cyan_nixie_tube", "color": "#4CCCFF"},
+    {"block": "create:light_blue_nixie_tube", "color": "#80A6FF"},
+    {"block": "create:blue_nixie_tube", "color": "#1A26FF"},
+    {"block": "create:purple_nixie_tube", "color": "#B24CFF"},
+    {"block": "create:magenta_nixie_tube", "color": "#FF1AFF"},
+    {"block": "create:pink_nixie_tube", "color": "#FF66FF"}
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "required_mods": ["nuclearcraftneohaul"],
+  "values": [
+    {"block": "nuclearcraftneohaul:tritium_lamp", "color": "#38FF42"},
+    {"block": "nuclearcraftneohaul:glowing_mushroom_block", "color": "#FF873D"},
+    {"block": "nuclearcraftneohaul:glowing_mushroom_stem_block", "color": "#FF873D"},
+    {"block": "nuclearcraftneohaul:glowstone", "color": "#FF873D"},
+    {"block": "nuclearcraftneohaul:cryotheum", "color": "#00CCFF"},
+    {"block": "nuclearcraftneohaul:plasma", "color": "#D640FF"},
+    {"block": "nuclearcraftneohaul:corium", "color": "#22BBFF"},
+    {"block": "nuclearcraftneohaul:solidified_corium", "color": "#22BBFF"},
+    {"item": "nuclearcraftneohaul:glowstone_bucket", "color": "#FF873D", "emission": 15},
+    {"item": "nuclearcraftneohaul:cryotheum_bucket", "color": "#00CCFF", "emission": 7},
+    {"item": "nuclearcraftneohaul:plasma_bucket", "color": "#D640FF", "emission": 15},
+    {"item": "nuclearcraftneohaul:corium_bucket", "color": "#22BBFF", "emission": 10}
+  ]
+}
